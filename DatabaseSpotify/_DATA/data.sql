@@ -1,22 +1,37 @@
 delete from Playlists
 delete from Users
+delete from Songs
+delete from Artists
 
-
-
-INSERT INTO Users 
+INSERT INTO Users
 VALUES 
-('Federico'),
-('Dario'),
-('Gianluca')
+('Federico', 'boccio'),
+('Dario', 'marioBrioches'),
+('Gianluca', 'capo'),
+('Tommaso', 'worker')
+
+INSERT INTO Artists
+VALUES
+('Gionata', 'Boschetti', 'SferaEbbasta')
+
+INSERT INTO Songs
+VALUES
+('Panette', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '180'),
+('Ciny', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '200'),
+('Visiera A Becco', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '220'),
+('Dexter', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '190')
 
 INSERT INTO Playlists 
 VALUES 
-('Canzoni al top',(SELECT UserId FROM Users WHERE [Name] = 'Federico')),
-('Marcella Bella TOPPER SONGS',(SELECT UserId FROM Users WHERE [Name] = 'Federico')),
-('Sanse il top',(SELECT UserId FROM Users WHERE [Name] = 'Dario')),
-('ITIS',(SELECT UserId FROM Users WHERE [Name] = 'Dario')),
-('Unica Playlist della mia vita',(SELECT UserId FROM Users WHERE [Name] = 'Federico'))
-
+('444',(SELECT UserId FROM Users WHERE [nickname] = 'boccio')),
+('Tutto SferaEbbasta',(SELECT UserId FROM Users WHERE [nickname] = 'boccio')),
+('Sanse il top',(SELECT UserId FROM Users WHERE [nickname] = 'marioBrioches')),
+('ITIS',(SELECT UserId FROM Users WHERE [nickname] = 'marioBrioches')),
+('Prima Playlist',(SELECT UserId FROM Users WHERE [nickname] = 'capo')),
+('Seconda Playlist',(SELECT UserId FROM Users WHERE [nickname] = 'capo')),
+('MAFIA SLIME 1',(SELECT UserId FROM Users WHERE [nickname] = 'worker')),
+('MAFIA SLIME 2',(SELECT UserId FROM Users WHERE [nickname] = 'worker'))
+---------------------------------------
 IF NOT EXISTS (SELECT TOP 1 * FROM dbo.MusicTypes)
 BEGIN
     PRINT 'Non esiste MusicTypes, quindi lo popolo!'
@@ -35,8 +50,11 @@ ELSE
 BEGIN
     PRINT 'MusicTypes ha già della roba dentro'
 END
+---------------------------------------------------------------
 
-SELECT *  from Users
+SELECT * from Users
 SELECT * from Playlists
-
-select * from dbo.MusicTypes
+SELECT * from MusicTypes
+SELECT * from PlaylistSongs
+SELECT * from Songs
+SELECT * from Artists
