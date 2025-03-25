@@ -1,22 +1,84 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    background-color: black;
+    width:100%;
 }
 
-@media (min-width: 768px) {
-  html {
+.top_menu {
+    width: 1900px;
+    height: 65px;
+    background-color: black
+}
+
+.left_menu {
+    width: 20%;
+    height: 880px;
+    background-color: rgb(18,18,18);
+    border-radius: 5px;
+    position: absolute;
+    top: 70px;
+}
+
+.right_menu {
+    height: 880px;
+    position: absolute;
+    overflow-y: auto;
+    width: 77%;
+    background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));
+    border-radius: 5px;
+    right: 1%;
+    top: 70px;
+}
+
+.home_button {
+    background-image: url('external_resources/home-button.png');
+    background-color: grey;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 100%;
     font-size: 16px;
-  }
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    transition-duration: 0.4s;
+    top: 12px;
+}
+    .home_button:hover {
+        background-color: white;
+    }
+
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    position: absolute;
+    border:none;
+    top: 10px;
+    left: 65px;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.topnav input[type=text] {
+    border: none;
+    width: 350px;
+    height: 45px;
+    font-size: 17px;
+    font-family:'Malgun Gothic';
+    border-radius: 15px;
+    background-color: rgb(31,31,31);
+    transition-duration: 0.4s;
+    border:none;
 }
+    .topnav input[type=text]:hover {
+        background-color: dimgray;
+        width: 450px;
+    }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+    .topnav input[type=text]::placeholder {
+        color: gray;
+        transition-duration: 0.4s;
+    }
+    .topnav input[type=text]:hover::placeholder {
+        color: white;
+    }
 
-body {
-  margin-bottom: 60px;
-}
+

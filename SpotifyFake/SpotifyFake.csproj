@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\external_resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\external_resources\icons8-home-button-50.png" />
+  </ItemGroup>
+
 </Project>
