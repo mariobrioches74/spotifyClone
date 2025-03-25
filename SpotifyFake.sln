@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyFake", "SpotifyFake\SpotifyFake.csproj", "{5E70A840-617B-4FE9-9B5A-BB6B04BB4210}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseSpotify", "DatabaseSpotify\DatabaseSpotify.sqlproj", "{2E1F5989-6B15-4DCC-AC40-A90548D07899}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E70A840-617B-4FE9-9B5A-BB6B04BB4210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E70A840-617B-4FE9-9B5A-BB6B04BB4210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E70A840-617B-4FE9-9B5A-BB6B04BB4210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E70A840-617B-4FE9-9B5A-BB6B04BB4210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E1F5989-6B15-4DCC-AC40-A90548D07899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E1F5989-6B15-4DCC-AC40-A90548D07899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E1F5989-6B15-4DCC-AC40-A90548D07899}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2E1F5989-6B15-4DCC-AC40-A90548D07899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1F5989-6B15-4DCC-AC40-A90548D07899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E1F5989-6B15-4DCC-AC40-A90548D07899}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09A407C8-9480-4C44-AE62-08748C97F160}
+	EndGlobalSection
+EndGlobal
