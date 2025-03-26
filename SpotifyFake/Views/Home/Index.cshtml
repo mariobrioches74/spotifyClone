@@ -1,4 +1,7 @@
-﻿<html style="background-color: black;">
+﻿@{
+	@model SpotifyFake.ViewModels.IndexViewModel
+}
+<html style="background-color: black;">
 <head>
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
@@ -12,7 +15,12 @@
 		</div>
 	</header>
 	<div class="right_menu">
-
+		@foreach (MusicTypes musicTypes in Model.musicTypes)
+		{
+			<p>
+				@musicTypes.type
+			</p>
+		}
 	</div>
 	<div class="left_menu" >
 

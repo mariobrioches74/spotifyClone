@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SpotifyFake.Models;
+using SpotifyFake.ViewModels;
+using SpotifyFake.Data; 
 
 namespace SpotifyFake.Controllers
 {
@@ -15,10 +17,19 @@ namespace SpotifyFake.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<MusicTypes> musicTypes = new List<MusicTypes>();
+            DatabaseAccess data =  new  DatabaseAccess();
+            musicTypes = data.GetMusicTypes();
+
+            return View(new IndexViewModel(musicTypes));
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult PlaylistDetails()
         {
             return View();
         }
