@@ -1,3 +1,4 @@
+
 USE Spotify
 
 delete from SongMusicTypes
@@ -105,9 +106,9 @@ VALUES
 
 INSERT INTO Albums
 VALUES
-(6, 'X2VR'),
-(7, 'Trap Fatta Bene'),
-(4, 'Reinsertado')
+('X2VR'),
+('Trap Fatta Bene'),
+('Reinsertado')
 -------------------------------------------------------------------
 INSERT INTO AlbumSongs
 VALUES
