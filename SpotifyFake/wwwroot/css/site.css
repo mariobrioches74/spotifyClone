@@ -133,18 +133,6 @@ table {
     border-spacing: 30px 0;
 }
 
-
-.display_left {
-    height: 40px;
-    width: 370px;
-    background-image: none;
-    transition-duration: 1s;
-}
-
-    .display_left:hover {
-        background-image: linear-gradient(to top left,rgb(34,34,34),rgb(18,18,18));
-    }
-
 .display_img {
     border-radius: 8px;
     width: 90%;
