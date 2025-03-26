@@ -6,48 +6,42 @@
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/bocelli.css" asp-append-version="true" />
 </head>
-	<body>
-		<header class="top_menu" >
-			<button type="button" class="home_button">
+<body>
+	<header class="top_menu" >
+		<button type="button" class="home_button">
 
-			</button>
-			<div class="topnav">
-				<input type="text" placeholder="Search.." >
-			</div>
-		</header>
-		<div class="right_menu">
-			<iframe src="http://localhost:5101/Home/HomeViewRightMenu" style="border:none" height="100%" width="100%">
-
-			</iframe>
+		</button>
+		<div class="topnav">
+			<input type="text" placeholder="Search.." >
 		</div>
-		<div class="left_menu" >
+	</header>
+	<div class="right_menu">
+		<iframe src="http://localhost:5101/Home/HomeViewRightMenu" style="border:none" height="100%" width="100%">
 
-			<div style="height:50px">
-				<h2 style="color:white; font-family:'Copperplate Gothic'; text-align:center">
-					PLAYLIST
+		</iframe>
+	</div>
+	<div class="left_menu" >
+
+		<div style="height:50px">
+			<h2 style="color:white; font-family:'Copperplate Gothic'; text-align:center">
+				PLAYLIST
+			</h2>
+		</div>
+		@foreach (Playlists playlists in Model.Playlists)
+		{
+				
+			<div class="display_left" >
+				<div style="height:40px; width:370px">
+				<h2 style="color:white; font-family:'Copperplate Gothic'; text-align:center; line-height:40px">
+					<p>
+						@playlists.name
+					</p>
 				</h2>
-			</div>
-			@foreach (Playlists playlists in Model.Playlists)
-			{
-
-				<div class="display_left" >
-					<div style="height:50px; width:370px">
-						<h2 style="color:white; font-family:'Copperplate Gothic'; text-align:center; line-height:50px">
-							<p>
-								@playlists.name
-							</p>
-						</h2>
-					</div>
 				</div>
+			</div>
+					
+		}
 
-			}
-			
-		</div>
-
-			
-
-		
-
-	
+	</div>
 	</body>
 </html>
