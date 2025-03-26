@@ -1,3 +1,5 @@
+USE Spotify
+
 delete from SongMusicTypes
 delete AlbumSongs
 delete from PlaylistSongs
