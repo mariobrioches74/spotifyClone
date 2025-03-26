@@ -1,11 +1,14 @@
 ﻿@{
-@model SpotifyFake.ViewModels.IndexViewModel
+@model SpotifyFake.ViewModels.HomeViewRightMenuViewModel
+/*
+	List<Playlists> playlists = 
 	int[] estratti = new int[6];
 	Random random = new Random();
 	for(int i=0;i<6;i++)
 	{
-		estratti[i] = random.Next(0, 10); /*sostituite 10 con song.Count()*/
+		estratti[i] = random.Next(0, );
 	}
+	*/
 }
 <head>
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -13,11 +16,75 @@
 <html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow-y: hidden">
 	<body>
 	<div class="right_menu_home">
-		<div>
+		<div style="height:350px">
+						<h2 style="color:white; font-family:'Copperplate Gothic'">
+				Album di tendenza
+			</h2>
 			<table>
 				<tr>
-					<td class="display_playlist"> 
+					<td class="display_playlist">
+									<img src=" ../../wwwroot/css/external_resources/home-button.png"  alt=" no img"/>
+					</td>
+					<td class="display_playlist">
 
+					</td>
+					<td class="display_playlist">
+
+					</td>
+					<td class="display_playlist">
+
+					</td>
+					<td class="display_playlist">
+
+					</td>
+					<td class="display_playlist">
+
+					</td>
+				</tr>
+			</table>
+		</div>
+		<hr />
+		<div style="height:350px">
+			<h2 style="color:white; font-family:'Copperplate Gothic'">
+				Generi più ascoltati
+			</h2>
+			<table>
+				<tr>
+					<td class="display_playlist">
+						<img src=" ../../wwwroot/css/external_resources/home-button.png" alt=" no img" />
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<hr />
+		<div style="height:350px">
+						<h2 style="color:white; font-family:'Copperplate Gothic'">
+				Artisti del momento
+			</h2>
+			<table>
+				<tr>
+					<td class="display_playlist">
+						<img src=" ../../wwwroot/css/external_resources/home-button.png" alt=" no img" />
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
+					</td>
+					<td class="display_playlist">
 					</td>
 				</tr>
 			</table>
