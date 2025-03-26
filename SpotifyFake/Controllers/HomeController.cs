@@ -28,6 +28,13 @@ namespace SpotifyFake.Controllers
         {
             return View();
         }
+        public IActionResult HomeViewRightMenu()
+        {
+            List<MusicTypes> musicTypes = new List<MusicTypes>();
+            DatabaseAccess data = new DatabaseAccess();
+            musicTypes = data.GetMusicTypes();
+            return View(new IndexViewModel(musicTypes));
+        }
 
         public IActionResult PlaylistDetails()
         {

@@ -1,0 +1,28 @@
+﻿@{
+@model SpotifyFake.ViewModels.IndexViewModel
+	int[] estratti = new int[6];
+	Random random = new Random();
+	for(int i=0;i<6;i++)
+	{
+		estratti[i] = random.Next(0, 10); /*sostituite 10 con song.Count()*/
+	}
+}
+<head>
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow-y: hidden">
+	<body>
+	<div class="right_menu_home">
+		<div>
+			<table>
+				<tr>
+					<td class="display_playlist"> 
+
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</body>
+<</html>
+
