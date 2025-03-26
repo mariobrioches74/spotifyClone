@@ -51,14 +51,18 @@ namespace SpotifyFake.Controllers
             List<Artists> artists = new List<Artists>();
             List<Playlists> playlists = new List<Playlists>();
             List<Users> users = new List<Users>();
+            List<AlbumSongs> albumSongs = new List<AlbumSongs>();
+            List<Songs> songs = new List<Songs>();
 
             DatabaseAccess data = new DatabaseAccess();
             albums = data.GetAlbums();
             artists = data.GetArtists();
             playlists = data.GetPlaylists();
             users = data.GetUsers();
+            albumSongs = data.GetAlbumSongs();
+            songs = data.GetSongs();
 
-            return View(new HomeViewRightMenuViewModel(albums,artists,playlists,users));
+            return View(new HomeViewRightMenuViewModel(albums,artists,playlists,users,albumSongs,songs));
         }
 
         public IActionResult PlaylistDetails()
