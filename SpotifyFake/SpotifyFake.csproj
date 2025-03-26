@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Home\img\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\css\external_resources\icons8-home-button-50.png" />
   </ItemGroup>
 
