@@ -1,20 +1,22 @@
 ﻿@{
 @model SpotifyFake.ViewModels.HomeViewRightMenuViewModel
-/*
-	List<Playlists> playlists = 
+
+	List<Albums> albums = Model.Albums;
+	List<AlbumSongs> albumsSongs = Model.AlbumSongs;
+	List<Songs> songs = Model.Songs;
+	List<Artists> artists = Model.Artists;
 	int[] estratti = new int[6];
 	Random random = new Random();
 	for(int i=0;i<6;i++)
 	{
-		estratti[i] = random.Next(0, );
+		estratti[i] = random.Next(0, albums.Count());
 	}
-	*/
 }
 <head>
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow-y: hidden">
-	<body>
+<body>
 	<div class="right_menu_home">
 		<div style="height:350px">
 			<h2 style="color:white; font-family:'Copperplate Gothic'">
@@ -24,7 +26,18 @@
 				<tr>
 					<td class="display_playlist" style="align-content:flex-start">
 						<img class="display_img" src="~/css/external_resources/x2vr_cover.jpg">
-						aaaa
+						<h3 class="scritta_playlist"> 
+							@albums[0].name.ToString()
+						</h3>
+						@{
+							AlbumSongs song_position = albumsSongs.Find(x => x.albumId == albums[0].albumId);
+							Songs song = songs.Find(x => x.id == song_position.songId);
+							Artists artist = artists.Find(x => x.id == song.artistid);
+							String stampa = "[E] " + artist.artname.ToString();
+						}
+						<h5 class="scritta_playlist" style="color:grey">
+							@stampa
+						</h5>
 					</td>
 					<td class="display_playlist">
 
