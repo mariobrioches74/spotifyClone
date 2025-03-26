@@ -39,9 +39,19 @@ namespace SpotifyFake.Controllers
         }
         public IActionResult HomeViewRightMenu()
         {
+            List<Albums> albums = new List<Albums>();
+            List<AlbumSongs> albumSongs = new List<AlbumSongs>();
+            List<Artists> artists = new List<Artists>();
             List<MusicTypes> musicTypes = new List<MusicTypes>();
+            List<Playlists> playlists = new List<Playlists>();
+            List<PlaylistSongs> playlistSongs = new List<PlaylistSongs>();
+            List<SongMusicTypes> songMusicTypes = new List<SongMusicTypes>();
+            List<Songs> songs = new List<Songs>();
+            List<Users> users = new List<Users>();
+
             DatabaseAccess data = new DatabaseAccess();
             musicTypes = data.GetMusicTypes();
+
             return View(new IndexViewModel(musicTypes));
         }
 
