@@ -117,7 +117,16 @@ VALUES
 ((SELECT id from Songs where [title] = '3uphon'), (SELECT albumId from Albums where [name] = 'X2VR')),
 ((SELECT id from Songs where [title] = 'Milano Bene'), (SELECT albumId from Albums where [name] = 'X2VR')),
 ((SELECT id from Songs where [title] = 'G63'), (SELECT albumId from Albums where [name] = 'X2VR')),
-((SELECT id from Songs where [title] = '15 Piani'), (SELECT albumId from Albums where [name] = 'X2VR'))
+((SELECT id from Songs where [title] = '15 Piani'), (SELECT albumId from Albums where [name] = 'X2VR')),
+((SELECT id from Songs where [title] = 'Mattone'), (SELECT albumId from Albums where [name] = 'Trap Fatta Bene')),
+((SELECT id from Songs where [title] = 'Gesu Bambino'), (SELECT albumId from Albums where [name] = 'Trap Fatta Bene')),
+((SELECT id from Songs where [title] = 'Apparecchiato'), (SELECT albumId from Albums where [name] = 'Trap Fatta Bene')),
+((SELECT id from Songs where [title] = 'Mafia Slime'), (SELECT albumId from Albums where [name] = 'Trap Fatta Bene')),
+((SELECT id from Songs where [title] = 'Pelele'), (SELECT albumId from Albums where [name] = 'Reinsertado')),
+((SELECT id from Songs where [title] = 'Se Grita'), (SELECT albumId from Albums where [name] = 'Reinsertado')),
+((SELECT id from Songs where [title] = 'Sigue'), (SELECT albumId from Albums where [name] = 'Reinsertado')),
+((SELECT id from Songs where [title] = 'Sonar'), (SELECT albumId from Albums where [name] = 'Reinsertado'))
+
 ------------------------------------------------------------------------
 INSERT INTO SongMusicTypes
 VALUES
