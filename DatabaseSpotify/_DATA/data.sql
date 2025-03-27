@@ -32,7 +32,9 @@ INSERT INTO Artists
 VALUES
 ('Gionata', 'Boschetti', 'SferaEbbasta'),
 ('Lorenzo', 'Vinciguerra', 'PapaV'),
-('Morad', 'El Horami', 'Morad')
+('Morad', 'El Horami', 'Morad'),
+('Lamine', 'Saida', 'Simba La Rue'),
+('William', 'Hickman', 'Mambolosco')
 
 
 
@@ -58,7 +60,16 @@ VALUES
 ('Pelele', (SELECT id from Artists where [artname] = 'Morad'), '180', 'Pelele.jpg'),
 ('Se Grita', (SELECT id from Artists where [artname] = 'Morad'), '200', 'Se Grita.jpg'),
 ('Sigue', (SELECT id from Artists where [artname] = 'Morad'), '220', 'Sigue.jpg'),
-('Sonar', (SELECT id from Artists where [artname] = 'Morad'), '190', 'Sonar.jpg')
+('Sonar', (SELECT id from Artists where [artname] = 'Morad'), '190', 'Sonar.jpg'),
+
+('Batman', (SELECT id from Artists where [artname] = 'Simba La Rue'), '180', 'Batman.jpg'),
+('SUITE HOTEL', (SELECT id from Artists where [artname] = 'Simba La Rue'), '200', 'SUITE HOTEL.jpg'),
+('TUNNEL', (SELECT id from Artists where [artname] = 'Simba La Rue'), '220', 'TUNNEL.jpg'),
+('COPACABANA', (SELECT id from Artists where [artname] = 'Simba La Rue'), '190', 'COPACABANA.jpg'),
+('TAF TAF', (SELECT id from Artists where [artname] = 'Simba La Rue'), '190', 'TAF TAF.jpg'),
+('ACCAVALLATO', (SELECT id from Artists where [artname] = 'Simba La Rue'), '190', 'ACCAVALLATO.jpg'),
+('Cagoule', (SELECT id from Artists where [artname] = 'Simba La Rue'), '190', 'Cagoule.jpg'),
+('VRP', (SELECT id from Artists where [artname] = 'Simba La Rue'), '190', 'VRP.jpg')
 
 
 INSERT INTO Playlists 
@@ -97,6 +108,25 @@ VALUES
 ((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = 'Ciny')),
 ((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = 'Visiera A Becco')),
 ((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = 'Dexter')),
+((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = 'Gol')),
+((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = 'Calcolatrici')),
+((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = '15 Piani')),
+((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = 'G63')),
+((SELECT playlistId from Playlists where [name] = 'TuttoSferaEbbasta'), (SELECT id from Songs where [title] = '3uphon')),
+
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'Batman')),
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'SUITE HOTEL')),
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'TUNNEL')),
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'COPACABANA')),
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'TAF TAF')),
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'ACCAVALLATO')),
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'Cagoule')),
+((SELECT playlistId from Playlists where [name] = 'Prima Playlist'), (SELECT id from Songs where [title] = 'VRP')),
+
+((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 1'), (SELECT id from Songs where [title] = 'Mattone')),
+((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 1'), (SELECT id from Songs where [title] = 'Apparecchiato')),
+((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 1'), (SELECT id from Songs where [title] = 'Mafia Slime')),
+((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 1'), (SELECT id from Songs where [title] = 'Gesu Bambino')),
 
 ((SELECT playlistId from Playlists where [name] = 'ITIS'), (SELECT id from Songs where [title] = 'Sigue')),
 ((SELECT playlistId from Playlists where [name] = 'ITIS'), (SELECT id from Songs where [title] = 'Pelele')),
