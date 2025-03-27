@@ -1,6 +1,7 @@
 ﻿using SpotifyFake.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using System.Linq;
 
 namespace SpotifyFake.Data
 {
@@ -64,13 +65,18 @@ namespace SpotifyFake.Data
             }
         }
 
-        public List<PlaylistSongs> GetPlaylistSongs()
+        public List<Songs> GetPlaylistSongs(int playlistId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT playlistId, songId FROM dbo.PlaylistSongs";
-                var playlistSongs = connection.Query<PlaylistSongs>(query).ToList();
-                return playlistSongs;
+                string query = @"
+SELECT S.*,ArtistName = A.name, ArtistArtName = a.artname,ArtistSurName = a.surname
+FROM dbo.PlaylistSongs PS
+INNER JOIN dbo.Songs S ON PS.songId = S.id
+INNER JOIN dbo.Artists A ON A.id = S.artistid
+WHERE PS.playlistId = @playlistId";
+                var songs = connection.Query<Songs>(query, new { playlistId }).ToList();
+                return songs;
             }
         }
 
@@ -84,13 +90,39 @@ namespace SpotifyFake.Data
             }
         }
 
-        public List<Songs> GetSongs()
+        public List<Songs> GetSongs(int? playlistId, int? albumId)
         {
+
+            string query = @"
+                SELECT 
+	                s.id, 
+	                title, 
+	                artistid, 
+	                time, 
+	                imgCode,
+	                ArtistArtName =A.name,
+	                ArtistName = a.artname,
+	                ArtistSurname = a.surname
+                FROM 
+	                dbo.Songs s
+	                INNER JOIN dbo.Artists A ON A.id = S.artistid";
+
+            if (playlistId is not null )
+            {
+                query += (" INNER JOIN dbo.PlaylistSongs PS ON PS.songId = S.id AND PS.playlistId = @playlistId");
+            }
+            if (albumId is not null)
+            {
+                query.Concat(" INNER JOIN dbo.AlbumSongs ASS ON ASS.songId = S.id AND ASS.albumId = @albumId");
+            }
+
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT id, title, artistid, time FROM dbo.Songs";
-                var songs = connection.Query<Songs>(query).ToList();
-                return songs;
+                
+                    var songs = connection.Query<Songs>(query, new { playlistId , albumId }).ToList();
+                    return songs;
+
+                    
             }
         }
 

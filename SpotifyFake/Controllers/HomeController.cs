@@ -33,9 +33,9 @@ namespace SpotifyFake.Controllers
             artists = data.GetArtists();
             musicTypes = data.GetMusicTypes();
             playlists = data.GetPlaylists();
-            playlistSongs = data.GetPlaylistSongs();
+            //playlistSongs = data.GetPlaylistSongs();
             songMusicTypes = data.GetSongMusicTypes();
-            songs = data.GetSongs();
+            songs = data.GetSongs(null,null);
             users = data.GetUsers();
 
             return View(new IndexViewModel(albums, albumSongs, artists, musicTypes, playlists, playlistSongs, songMusicTypes, songs, users));
@@ -60,14 +60,20 @@ namespace SpotifyFake.Controllers
             playlists = data.GetPlaylists();
             users = data.GetUsers();
             albumSongs = data.GetAlbumSongs();
-            songs = data.GetSongs();
+            songs = data.GetSongs(null,null);
 
             return View(new HomeViewRightMenuViewModel(albums,artists,playlists,users,albumSongs,songs));
         }
 
-        public IActionResult PlaylistDetails()
+        public IActionResult PlaylistDetails(int playlistId)
         {
-            return View();
+            List<Songs> songs = new List<Songs>();
+
+            DatabaseAccess data = new DatabaseAccess();
+
+            songs = data.GetPlaylistSongs(playlistId);            
+
+            return View(new PlaylistDetails(songs));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
