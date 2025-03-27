@@ -5,12 +5,8 @@
 	List<AlbumSongs> albumsSongs = Model.AlbumSongs;
 	List<Songs> songs = Model.Songs;
 	List<Artists> artists = Model.Artists;
-	int[] estratti = new int[6];
-	Random random = new Random();
-	for(int i=0;i<albums.Count();i++)
-	{
-		estratti[i] = random.Next(0, albums.Count());
-	}
+	List<int> estratto = new List<int>();
+	Random r = new Random();
 }
 <head>
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -26,33 +22,28 @@
 			<table>
 				<tr>
 					@{
-						foreach (Albums album in albums)
+						for(int i= 0;i < albums.Count();i++)
 						{
+							int temp;
+							do
+							{
+								temp = r.Next(0, albums.Count());
+							}while (estratto.Contains(temp));
+							estratto.Add(temp);
+							Albums album = albums[estratto[i]];
 							<td class="display_playlist" style="align-content:flex-start">
 								<img class="display_img" src="~/media/images/albums/@(album.imgCode)">
 								@{
-									// if(albums.Count>pos)
-									// {
-										<h3 class="scritta_playlist">
-											@album.name
-										</h3>
-										// AlbumSongs song_position = albumsSongs.Find(x => x.albumId == albums[estratti[pos]].albumId);
-										// Songs song = songs.Find(x => x.id == song_position.songId);
-										// Artists artist = artists.Find(x => x.id == song.artistid);
-										// String stampa = "[E] " + artist.artname.ToString();
-										// <h5 class="scritta_playlist" style="color:grey">
-										// 	// @stampa
-										// </h5>
-									// }
-									// else
-									// {
-									// 	<h3 class="scritta_playlist">
-									// 		TitoloAlbum
-									// 	</h3>
-									// 	<h5 class="scritta_playlist" style="color:grey">
-									// 		autore album
-									// 	</h5>
-									// }
+									<h3 class="scritta_playlist">
+										@album.name
+									</h3>
+									AlbumSongs song_position = albumsSongs.Find(x => x.albumId == album.albumId);
+									Songs song = songs.Find(x => x.id == song_position.songId);
+									Artists artist = artists.Find(x => x.id == song.artistid);
+									String stampa = "[E] " + artist.artname.ToString();
+									<h5 class="scritta_playlist" style="color:grey">
+										@stampa
+									</h5>
 								}
 							</td>
 						}
@@ -68,33 +59,29 @@
 			<table>
 				<tr>
 					@{
-						foreach (int pos in estratti)
+						estratto.Clear();
+						for (int i = 0; i < albums.Count(); i++)
 						{
+							int temp;
+							do
+							{
+								temp = r.Next(0, albums.Count());
+							} while (estratto.Contains(temp));
+							estratto.Add(temp);
+							Albums album = albums[estratto[i]];
 							<td class="display_playlist" style="align-content:flex-start">
-								<img class="display_img" src="" alt="cover genere">
+								<img class="display_img" src="~/media/images/albums/@(album.imgCode)">
 								@{
-									if (albums.Count < pos)
-									{
-										<h3 class="scritta_playlist">
-											@albums[pos].name.ToString()
-										</h3>
-										AlbumSongs song_position = albumsSongs.Find(x => x.albumId == albums[pos].albumId);
-										Songs song = songs.Find(x => x.id == song_position.songId);
-										Artists artist = artists.Find(x => x.id == song.artistid);
-										String stampa = "[E] " + artist.artname.ToString();
-										<h5 class="scritta_playlist" style="color:grey">
-											@stampa
-										</h5>
-									}
-									else
-									{
-										<h3 class="scritta_playlist">
-											NomeGenere
-										</h3>
-										<h5 class="scritta_playlist" style="color:grey">
-											3 artisti random
-										</h5>
-									}
+									<h3 class="scritta_playlist">
+										@album.name
+									</h3>
+									AlbumSongs song_position = albumsSongs.Find(x => x.albumId == album.albumId);
+									Songs song = songs.Find(x => x.id == song_position.songId);
+									Artists artist = artists.Find(x => x.id == song.artistid);
+									String stampa = "[E] " + artist.artname.ToString();
+									<h5 class="scritta_playlist" style="color:grey">
+										@stampa
+									</h5>
 								}
 							</td>
 						}
@@ -104,39 +91,27 @@
 		</div>
 		<hr />
 		<div style="height:350px">
-						<h2 style="color:white; font-family:'Copperplate Gothic'">
+			<h2 style="color:white; font-family:'Copperplate Gothic'">
 				Artisti del momento
 			</h2>
 			<table>
 				<tr>
 					@{
-						foreach (int pos in estratti)
+						estratto.Clear();
+						for (int i = 0; i < artists.Count(); i++)
 						{
+							int temp;
+							do
+							{
+								temp = r.Next(0, artists.Count());
+							} while (estratto.Contains(temp));
+							estratto.Add(temp);
 							<td class="display_playlist" style="align-content:flex-start">
-								<img class="display_img" src="" alt="Foto Artista">
+								<img class="display_img" src="~/media/images/albums/">
 								@{
-									if (albums.Count < pos)
-									{
-										<h3 class="scritta_playlist">
-											@albums[pos].name.ToString()
-										</h3>
-										AlbumSongs song_position = albumsSongs.Find(x => x.albumId == albums[pos].albumId);
-										Songs song = songs.Find(x => x.id == song_position.songId);
-										Artists artist = artists.Find(x => x.id == song.artistid);
-										String stampa = "[E] " + artist.artname.ToString();
-										<h5 class="scritta_playlist" style="color:grey">
-											@stampa
-										</h5>
-									}
-									else
-									{
-										<h3 class="scritta_playlist">
-											NomeArtista
-										</h3>
-										<h5 class="scritta_playlist" style="color:grey">
-											genere/i
-										</h5>
-									}
+									<h3 class="scritta_playlist">
+										@artists[estratto[i]].artname
+									</h3>
 								}
 							</td>
 						}
@@ -146,5 +121,5 @@
 		</div>
 	</div>
 	</body>
-<</html>
+</html>
 
