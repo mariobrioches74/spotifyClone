@@ -33,9 +33,9 @@ namespace SpotifyFake.Controllers
             artists = data.GetArtists();
             musicTypes = data.GetMusicTypes();
             playlists = data.GetPlaylists();
-            playlistSongs = data.GetPlaylistSongs();
+            //playlistSongs = data.GetPlaylistSongs();
             songMusicTypes = data.GetSongMusicTypes();
-            songs = data.GetSongs(0);
+            songs = data.GetSongs(null,null);
             users = data.GetUsers();
 
             return View(new IndexViewModel(albums, albumSongs, artists, musicTypes, playlists, playlistSongs, songMusicTypes, songs, users));
@@ -60,7 +60,7 @@ namespace SpotifyFake.Controllers
             playlists = data.GetPlaylists();
             users = data.GetUsers();
             albumSongs = data.GetAlbumSongs();
-            songs = data.GetSongs(0);
+            songs = data.GetSongs(null,null);
 
             return View(new HomeViewRightMenuViewModel(albums,artists,playlists,users,albumSongs,songs));
         }
@@ -68,20 +68,10 @@ namespace SpotifyFake.Controllers
         public IActionResult PlaylistDetails(int playlistId)
         {
             List<Songs> songs = new List<Songs>();
-            List<PlaylistSongs> playlistSongs = new List<PlaylistSongs>();
 
             DatabaseAccess data = new DatabaseAccess();
-            
-            playlistSongs = data.GetPlaylistSongs();
 
-            for (int i = 0; i < playlistSongs.Count; i++)
-            {
-                if(playlistId == playlistSongs[i].playlistId)
-                {
-                    songs = data.GetSongs(playlistSongs[i].songId);
-                }
-            }
-            
+            songs = data.GetPlaylistSongs(playlistId);            
 
             return View(new PlaylistDetails(songs));
         }
