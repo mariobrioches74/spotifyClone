@@ -84,13 +84,23 @@ namespace SpotifyFake.Data
             }
         }
 
-        public List<Songs> GetSongs()
+        public List<Songs> GetSongs(int playlistId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT id, title, artistid, time FROM dbo.Songs";
-                var songs = connection.Query<Songs>(query).ToList();
-                return songs;
+                if(playlistId == 0)
+                {
+                    string query = @"SELECT id, title, artistid, time, imgCode FROM dbo.Songs";
+                    var songs = connection.Query<Songs>(query).ToList();
+                    return songs;
+                }
+                else
+                {
+                    string query = @"SELECT id, title, artistid, time, imgCode FROM dbo.Songs where playlistId = @playlistId";
+                    var songs = connection.Query<Songs>(query, new { playlistId }).ToList();
+                    return songs;
+                }
+                    
             }
         }
 
