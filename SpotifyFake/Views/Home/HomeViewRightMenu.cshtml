@@ -16,10 +16,10 @@
 <body>
 	<div class="right_menu_home">
 		<div style="height:350px">
-			<h2 style="color:white; font-family:'Copperplate Gothic'">
+			<h2 style="color:white; font-family:'Copperplate Gothic'; left:20px; position:relative">
 				Album di tendenza
 			</h2>
-			<table>
+			<table class="tableHome">
 				<tr>
 					@{
 						for(int i= 0;i < albums.Count();i++)
@@ -53,10 +53,10 @@
 		</div>
 		<hr />
 		<div style="height:350px">
-			<h2 style="color:white; font-family:'Copperplate Gothic'">
+			<h2 style="color:white; font-family:'Copperplate Gothic'; left:20px; position:relative">
 				Generi più ascoltati
 			</h2>
-			<table>
+			<table class="tableHome">
 				<tr>
 					@{
 						estratto.Clear();
@@ -91,10 +91,10 @@
 		</div>
 		<hr />
 		<div style="height:350px">
-			<h2 style="color:white; font-family:'Copperplate Gothic'">
+			<h2 style="color:white; font-family:'Copperplate Gothic'; left:20px; position:relative">
 				Artisti del momento
 			</h2>
-			<table>
+			<table class="tableHome">
 				<tr>
 					@{
 						estratto.Clear();
