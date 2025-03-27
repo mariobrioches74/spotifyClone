@@ -1,6 +1,5 @@
 ﻿@{
 	@model SpotifyFake.ViewModels.PlaylistDetails
-	List<Songs> songs = Model.Songs;
 }
 
 <head>
@@ -9,10 +8,52 @@
 </head>
 <html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow-y: hidden">
 
-	<body>
-
-		
-
+<body>
+	<div class="right_menu_home">
+			<table style="top:20px; left:20px; position:relative">
+				<tr style="width:220px">
+				<td class="display_playlist_songs" style="align-content:flex-start">
+						<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
+					</td>
+				<td class="display_playlist_songs" style="align-content:flex-start">
+						<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[1].imgCode)">
+					</td>
+				<td>
+					<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 200px">
+						@Model.Playlists[Model.PlaylistId - 1].name
+					</h1>
+				</td>
+				</tr>
+			<tr style="width:220px">
+				<td class="display_playlist_songs" style="align-content:flex-start">
+						<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[2].imgCode)">
+					</td>
+				<td class="display_playlist_songs" style="align-content:flex-start">
+						<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[3].imgCode)">
+					</td>
+				</tr>
+			</table>
+		<hr style="top:10px; position:relative"/>
+			@foreach (Songs songs in Model.Songs)
+			{
+				<table style="top:50px; left:50px; position:relative; border-spacing:10px">
+					<tr>
+					<td style="align-content:flex-start; height:100px; width:100px">
+							<img class="display_img_songs" src="~/media/images/songs/@(songs.imgCode)">
+						</td>
+					<td style="align-content:flex-start; height:80px; width:300px; position:relative; left:50px;">
+							<h2 style="color:white; font-family:'Copperplate Gothic'">
+								@songs.title
+							</h2>
+							<h5 class="scritta_playlist" style="color:grey">
+								@songs.ArtistArtName
+							</h5>
+						</td>
+					</tr>
+				</table>
+			
+			}
+	</div>
 	</body>
 
 	
