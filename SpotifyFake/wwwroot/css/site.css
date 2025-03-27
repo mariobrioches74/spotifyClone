@@ -129,7 +129,7 @@ html {
     transition-duration: 1s;
 }
     .display_playlist:hover {
-        background-image: linear-gradient(to top left,rgb(34,34,34),rgb(18,18,18));
+        background-image: linear-gradient(to top left,rgb(38,38,38),rgb(10,10,10));
     }
 table {
     border-collapse: separate;
