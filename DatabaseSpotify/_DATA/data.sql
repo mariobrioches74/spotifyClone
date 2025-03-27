@@ -38,27 +38,27 @@ VALUES
 
 INSERT INTO Songs
 VALUES
-('Panette', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '180'),
-('Ciny', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '200'),
-('Visiera A Becco', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '220'),
-('Dexter', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '190'),
+('Panette', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '180', 'Panette'),
+('Ciny', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '200', 'Ciny'),
+('Visiera A Becco', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '210', 'Visiera A Becco'),
+('Dexter', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '190', 'Dexter'),
 
-('Gol', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '180'),
-('Calcolatrici', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '200'),
-('3uphon', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '220'),
-('Milano Bene', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '190'),
-('G63', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '180'),
-('15 Piani', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '200'),
+('Gol', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '180', 'Gol'),
+('Calcolatrici', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '200', 'Calcolatrici'),
+('3uphon', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '220', '3uphon'),
+('Milano Bene', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '190', 'Milano Bene'),
+('G63', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '180', 'G63'),
+('15 Piani', (SELECT id from Artists where [artname] = 'SferaEbbasta'), '200', '15 Piani'),
 
-('Mattone', (SELECT id from Artists where [artname] = 'PapaV'), '180'),
-('Gesu Bambino', (SELECT id from Artists where [artname] = 'PapaV'), '200'),
-('Apparecchiato', (SELECT id from Artists where [artname] = 'PapaV'), '220'),
-('Mafia Slime', (SELECT id from Artists where [artname] = 'PapaV'), '190'),
+('Mattone', (SELECT id from Artists where [artname] = 'PapaV'), '180', 'Mattone'),
+('Gesu Bambino', (SELECT id from Artists where [artname] = 'PapaV'), '200', 'Gesu Bambino'),
+('Apparecchiato', (SELECT id from Artists where [artname] = 'PapaV'), '220', 'Apparecchiato'),
+('Mafia Slime', (SELECT id from Artists where [artname] = 'PapaV'), '190', 'Mafia Slime'),
 
-('Pelele', (SELECT id from Artists where [artname] = 'Morad'), '180'),
-('Se Grita', (SELECT id from Artists where [artname] = 'Morad'), '200'),
-('Sigue', (SELECT id from Artists where [artname] = 'Morad'), '220'),
-('Sonar', (SELECT id from Artists where [artname] = 'Morad'), '190')
+('Pelele', (SELECT id from Artists where [artname] = 'Morad'), '180', 'Pelele'),
+('Se Grita', (SELECT id from Artists where [artname] = 'Morad'), '200', 'Se Grita'),
+('Sigue', (SELECT id from Artists where [artname] = 'Morad'), '220', 'Sigue'),
+('Sonar', (SELECT id from Artists where [artname] = 'Morad'), '190', 'Sonar')
 
 
 INSERT INTO Playlists 
@@ -106,9 +106,9 @@ VALUES
 
 INSERT INTO Albums
 VALUES
-('X2VR'),
-('Trap Fatta Bene'),
-('Reinsertado')
+('X2VR', 'X2VR'),
+('Trap Fatta Bene', 'TFB'),
+('Reinsertado', 'REINSERTADO')
 -------------------------------------------------------------------
 INSERT INTO AlbumSongs
 VALUES
