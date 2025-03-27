@@ -9,14 +9,16 @@
 <body>
 	<header class="top_menu" >
 		<button type="button" class="home_button">
-
+			<a href="http://localhost:5101/home/HomeViewRightMenu" target="iframe_home" style="opacity:0;font-size:200%">
+				O
+			</a>
 		</button>
 		<div class="topnav">
 			<input type="text" placeholder="Search.." >
 		</div>
 	</header>
 	<div class="right_menu">
-		<iframe src="http://localhost:5101/Home/HomeViewRightMenu" style="border:none" height="100%" width="100%">
+		<iframe src="http://localhost:5101/Home/HomeViewRightMenu" style="border:none" height="100%" width="100%" name="iframe_home">
 
 		</iframe>
 	</div>
@@ -32,10 +34,10 @@
 				
 			<div class="display_left" >
 				<div style="height:40px; width:370px">
-				<h2 style="color:white; font-family:'Copperplate Gothic'; text-align:center; line-height:40px">
-					<p>
-						@playlists.name
-					</p>
+					<h2 style="color:white; font-family:'Copperplate Gothic'; text-align:center; line-height:40px" >
+						<a href="http://localhost:5101/home/PlaylistDetails" target="iframe_home">
+							@playlists.name
+						</a>
 				</h2>
 				</div>
 			</div>
