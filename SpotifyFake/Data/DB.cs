@@ -18,7 +18,7 @@ namespace SpotifyFake.Data
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT albumId, name FROM dbo.Albums";
+                string query = @"SELECT albumId, name, imgCode FROM dbo.Albums";
                 var albums = connection.Query<Albums>(query).ToList();
                 return albums;
             }
