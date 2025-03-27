@@ -1,7 +1,7 @@
 html {
     font-size: 14px;
     background-color: black;
-    width:100%;
+    width: 100%;
 }
 
 /* three base menu(top full, left, right) */
@@ -32,10 +32,11 @@ html {
     top: 70px;
 }
 
-.right_menu_home {/* state of the right menu when in home page*/
+.right_menu_home { /* state of the right menu when in home page*/
     background-color: none;
     width: 100%;
-    height:880px;
+    height: 880px;
+    scrollbar-gutter: stable;
     overflow-y: hidden;
 }
     .right_menu_home:hover{
@@ -149,6 +150,7 @@ table {
     font-family:Helvetica;
     max-width:100%;
 }
+
 
 
 
