@@ -68,14 +68,22 @@ namespace SpotifyFake.Controllers
         public IActionResult PlaylistDetails(int playlistId)
         {
             List<Songs> songs = new List<Songs>();
-            List<Playlists> playlists = new List<Playlists>();
+            List<PlaylistSongs> playlistSongs = new List<PlaylistSongs>();
 
             DatabaseAccess data = new DatabaseAccess();
+            
+            playlistSongs = data.GetPlaylistSongs();
 
-            songs = data.GetSongs(playlistId);
-            playlists = data.GetPlaylists();
+            for (int i = 0; i < playlistSongs.Count; i++)
+            {
+                if(playlistId == playlistSongs[i].playlistId)
+                {
+                    songs = data.GetSongs(playlistSongs[i].songId);
+                }
+            }
+            
 
-            return View(new PlaylistDetails(playlists, songs));
+            return View(new PlaylistDetails(songs));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
