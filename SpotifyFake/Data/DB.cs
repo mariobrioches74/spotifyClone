@@ -84,11 +84,11 @@ namespace SpotifyFake.Data
             }
         }
 
-        public List<Songs> GetSongs(int playlistId)
+        public List<Songs> GetSongs(int id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                if(playlistId == 0)
+                if(id == 0)
                 {
                     string query = @"SELECT id, title, artistid, time, imgCode FROM dbo.Songs";
                     var songs = connection.Query<Songs>(query).ToList();
@@ -96,8 +96,8 @@ namespace SpotifyFake.Data
                 }
                 else
                 {
-                    string query = @"SELECT id, title, artistid, time, imgCode FROM dbo.Songs where playlistId = @playlistId";
-                    var songs = connection.Query<Songs>(query, new { playlistId }).ToList();
+                    string query = @"SELECT id, title, artistid, time, imgCode FROM dbo.Songs where id = @id";
+                    var songs = connection.Query<Songs>(query, new { id }).ToList();
                     return songs;
                 }
                     
