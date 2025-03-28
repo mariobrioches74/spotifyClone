@@ -112,6 +112,14 @@ namespace SpotifyFake.Controllers
         {
             return View();
         }
+
+        public IActionResult AllSongs()
+        {
+            List<Songs> songs = new List<Songs>();
+            DatabaseAccess data = new DatabaseAccess();
+            songs = data.GetSongs(null, null);
+            return View(new AllSongsViewModel(songs));
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
