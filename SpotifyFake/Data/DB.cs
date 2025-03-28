@@ -70,11 +70,11 @@ namespace SpotifyFake.Data
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-SELECT S.*,ArtistName = A.name, ArtistArtName = a.artname,ArtistSurName = a.surname
-FROM dbo.PlaylistSongs PS
-INNER JOIN dbo.Songs S ON PS.songId = S.id
-INNER JOIN dbo.Artists A ON A.id = S.artistid
-WHERE PS.playlistId = @playlistId";
+                SELECT S.*,ArtistName = A.name, ArtistArtName = a.artname,ArtistSurName = a.surname
+                FROM dbo.PlaylistSongs PS
+                INNER JOIN dbo.Songs S ON PS.songId = S.id
+                INNER JOIN dbo.Artists A ON A.id = S.artistid
+                WHERE PS.playlistId = @playlistId";
                 var songs = connection.Query<Songs>(query, new { playlistId }).ToList();
                 return songs;
             }
@@ -85,11 +85,14 @@ WHERE PS.playlistId = @playlistId";
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-SELECT S.*,ArtistName = A.name, ArtistArtName = a.artname,ArtistSurName = a.surname
-FROM dbo.AlbumSongs ASS
-INNER JOIN dbo.Songs S ON ASS.songId = S.id
-INNER JOIN dbo.Artists A ON A.id = S.artistid
-WHERE PS.albumId = @albumId";
+                SELECT 
+                s.title,
+                s.imgCode,
+                a.artname
+                FROM dbo.AlbumSongs ASS
+                INNER JOIN dbo.Songs S ON ASS.songId = S.id
+                INNER JOIN dbo.Artists A ON A.id = S.artistid
+                WHERE ASS.albumId = @albumId";
                 var songs = connection.Query<Songs>(query, new { albumId }).ToList();
                 return songs;
             }
