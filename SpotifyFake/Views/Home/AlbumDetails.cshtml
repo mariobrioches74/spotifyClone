@@ -10,22 +10,34 @@
 
 <body>
 	<div class="right_menu_home">
-		<div style="top:20px; left:20px; position:relative; width:440px; height:440px;">
-			<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
-		</div>
+		<table style="top:20px; left:20px; position:relative; ">
+		<tr>
+			<td style="width:440px; height:440px;">
+				<img class="display_img_songs" src="~/media/images/albums/@Model.Albums[Model.AlbumId-1].imgCode">
+			</td>
+			<td>
+				<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 100px">
+					@Model.Albums[Model.AlbumId-1].name
+				</h1>
+					<h3 style="font-size:60px; color: grey; position:relative; top:75px; left: 100px">
+						@Model.Songs[0].ArtistArtName
+					</h3>
+			</td>
+		</table>
+		
 		<hr style="top:10px; position:relative" />
 		@foreach (Songs songs in Model.Songs)
 		{
-			<table style="top:50px; left:50px; position:relative; border-spacing:10px">
+			<table style="top:50px; left:50px; position:relative; border-spacing:30px">
 				<tr>
 					<td style="align-content:flex-start; height:100px; width:100px">
 						<img class="display_img_songs" src="~/media/images/songs/@(songs.imgCode)">
 					</td>
-					<td style="align-content:flex-start; height:80px; width:300px; position:relative; left:50px;">
+					<td style="align-content:flex-start; height:80px; width:300px;">
 						<h2 style="color:white; font-family:'Copperplate Gothic'">
 							@songs.title
 						</h2>
-						<h5 class="scritta_playlist" style="color:grey">
+						<h5 class="scritta_playlist" style="color:grey;">
 							@songs.ArtistArtName
 						</h5>
 					</td>
