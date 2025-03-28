@@ -100,6 +100,36 @@ html {
         .topnav input[type=text]:hover::placeholder { /* changes to placeholder text when hover */
             color: white;
         }
+.topnavAdd {
+    overflow: hidden;
+    position: absolute;
+    border: none;
+    left: 65px;
+}
+
+    .topnavAdd input[type=text] { /* input section of the search bar */
+        border: none;
+        width: 250px;
+        height: 60px;
+        font-size: 17px;
+        font-family: 'Malgun Gothic';
+        border-radius: 15px;
+        border-color: white;
+        text-align:center;
+    }
+
+        .topnavAdd input[type=text]:hover { /* changes to searchbar when hover */
+            width: 250px;
+        }
+
+        .topnavAdd input[type=text]::placeholder { /* Hint text on the search bar */
+            border-color: white;
+        }
+
+        .topnavAdd input[type=text]:hover::placeholder { /* changes to placeholder text when hover */
+            color: white;
+            border-color:white;
+        }
 
 /* Custom Scollbar */
 
