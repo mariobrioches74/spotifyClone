@@ -217,7 +217,7 @@ VALUES
 ('Trap Fatta Bene', 'TFB.jpg'),
 ('Reinsertado', 'REINSERTADO.jpg'),
 ('TUNNEL', 'TUNNEL.jpg'),
-('Facendo Faccende', 'FACENDO FACCENEDE.jpg'),
+('Facendo Faccende', 'FACENDO FACCENDE.jpg'),
 ('POWER UP', 'POWER UP.jpg')
 -------------------------------------------------------------------
 INSERT INTO AlbumSongs
