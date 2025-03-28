@@ -1,0 +1,40 @@
+﻿@{
+	@model SpotifyFake.ViewModels.AlbumDetailsViewModel
+}
+
+<head>
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/CssRubatoW3S.css" asp-append-version="true" />
+</head>
+<html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow-y: hidden">
+
+<body>
+	<div class="right_menu_home">
+		<div style="top:20px; left:20px; position:relative; width:440px; height:440px;">
+			
+		</div>
+		<hr style="top:10px; position:relative" />
+		@foreach (Songs songs in Model.Songs)
+		{
+			<table style="top:50px; left:50px; position:relative; border-spacing:10px">
+				<tr>
+					<td style="align-content:flex-start; height:100px; width:100px">
+						<img class="display_img_songs" src="~/media/images/songs/@(songs.imgCode)">
+					</td>
+					<td style="align-content:flex-start; height:80px; width:300px; position:relative; left:50px;">
+						<h2 style="color:white; font-family:'Copperplate Gothic'">
+							@songs.title
+						</h2>
+						<h5 class="scritta_playlist" style="color:grey">
+							@songs.ArtistArtName
+						</h5>
+					</td>
+				</tr>
+			</table>
+
+		}
+	</div>
+</body>
+
+
+</html>

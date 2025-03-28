@@ -80,6 +80,21 @@ WHERE PS.playlistId = @playlistId";
             }
         }
 
+        public List<Songs> GetAlbumSongs(int albumId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+SELECT S.*,ArtistName = A.name, ArtistArtName = a.artname,ArtistSurName = a.surname
+FROM dbo.AlbumSongs ASS
+INNER JOIN dbo.Songs S ON ASS.songId = S.id
+INNER JOIN dbo.Artists A ON A.id = S.artistid
+WHERE PS.albumId = @albumId";
+                var songs = connection.Query<Songs>(query, new { albumId }).ToList();
+                return songs;
+            }
+        }
+
         public List<SongMusicTypes> GetSongMusicTypes()
         {
             using (var connection = new SqlConnection(_connectionString))
