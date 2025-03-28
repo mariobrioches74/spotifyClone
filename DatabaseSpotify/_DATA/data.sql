@@ -30,12 +30,12 @@ VALUES
 
 INSERT INTO Artists
 VALUES
-('Gionata', 'Boschetti', 'SferaEbbasta'),
-('Lorenzo', 'Vinciguerra', 'PapaV'),
-('Morad', 'El Horami', 'Morad'),
-('Lamine', 'Saida', 'Simba La Rue'),
-('William', 'Hickman', 'Mambolosco'),
-('Alternate', 'Direct', 'ACDC')
+('Gionata', 'Boschetti', 'SferaEbbasta', 'SFERAEBBASTA.jpg'),
+('Lorenzo', 'Vinciguerra', 'PapaV', 'PAPAV.jpg'),
+('Morad', 'El Horami', 'Morad', 'MORAD.jpg'),
+('Lamine', 'Saida', 'Simba La Rue', 'SIMBA LA RUE.jpg'),
+('William', 'Hickman', 'Mambolosco', 'MAMBOLOSCO.jpg'),
+('Alternate', 'Direct', 'ACDC', 'ACDC.jpg')
 
 
 
