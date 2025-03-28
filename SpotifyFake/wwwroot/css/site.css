@@ -38,9 +38,11 @@ html {
     height: 880px;
     scrollbar-gutter: stable;
     overflow: hidden;
+
 }
-    .right_menu_home:hover{
-        overflow-y:auto;
+    .right_menu_home:hover {
+        overflow-y: auto;
+        transition: all 1.3s ease-in-out;
     }
 
 /* Home Button */
@@ -126,7 +128,7 @@ html {
     max-width: 220px;
     background-image: none;
     border-radius: 8px;
-    transition-duration: 1s;
+    transition: all 1.3s ease-in-out;
 }
     .display_playlist:hover {
         background-image: linear-gradient(to top left,rgb(38,38,38),rgb(10,10,10));
@@ -172,7 +174,6 @@ html {
     margin-top: 3%;
 }
 a.fill-div {
-    display: block;
     height: 270px;
     width: 220px;
     text-decoration: none;
