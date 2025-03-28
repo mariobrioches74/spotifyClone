@@ -5,27 +5,37 @@ namespace SpotifyFake.ViewModels
     public class HomeViewRightMenuViewModel
     {
         private List<Albums> albums;
+        private List<AlbumSongs> albumsSongs;
         private List<Artists> artists;
+        private List<MusicTypes> musicTypes;
         private List<Playlists> playlists;
-        private List<Users> users;
-        private List<AlbumSongs> albumSongs;
+        private List<PlaylistSongs> playlistSongs;
+        private List<SongMusicTypes> songMusicTypes;
         private List<Songs> songs;
+        private List<Users> users;
 
         public List<Albums> Albums { get => albums; set => albums = value; }
+        public List<AlbumSongs> AlbumsSongs { get => albumsSongs; set => albumsSongs = value; }
         public List<Artists> Artists { get => artists; set => artists = value; }
+        public List<MusicTypes> MusicTypes { get => musicTypes; set => musicTypes = value; }
         public List<Playlists> Playlists { get => playlists; set => playlists = value; }
-        public List<Users> Users { get => users; set => users = value; }
-        public List<AlbumSongs> AlbumSongs { get => albumSongs; set => albumSongs = value; }
+        public List<PlaylistSongs> PlaylistSongs { get => playlistSongs; set => playlistSongs = value; }
+        public List<SongMusicTypes> SongMusicTypes { get => songMusicTypes; set => songMusicTypes = value; }
         public List<Songs> Songs { get => songs; set => songs = value; }
+        public List<Users> Users { get => users; set => users = value; }
 
-        public HomeViewRightMenuViewModel(List<Albums> albums, List<Artists> artists, List<Playlists> playlists,List<Users> users, List<AlbumSongs> albumSongs, List<Songs> songs)
+        public HomeViewRightMenuViewModel(List<Albums> albums, List<AlbumSongs> albumsSongs, List<Artists> artists, List<MusicTypes> musicTypes, List<Playlists> playlists,
+            List<PlaylistSongs> playlistSongs, List<SongMusicTypes> songMusicTypes, List<Songs> songs, List<Users> users)
         {
             Albums = albums;
+            AlbumsSongs = albumsSongs;
             Artists = artists;
+            MusicTypes = musicTypes;
             Playlists = playlists;
-            Users = users;
-            AlbumSongs = albumSongs;
+            PlaylistSongs = playlistSongs;
+            SongMusicTypes = songMusicTypes;
             Songs = songs;
+            Users = users;
         }
     }
 }

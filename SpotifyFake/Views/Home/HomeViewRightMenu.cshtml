@@ -2,7 +2,7 @@
 @model SpotifyFake.ViewModels.HomeViewRightMenuViewModel
 
 	List<Albums> albums = Model.Albums;
-	List<AlbumSongs> albumsSongs = Model.AlbumSongs;
+	List<AlbumSongs> albumsSongs = Model.AlbumsSongs;
 	List<Songs> songs = Model.Songs;
 	List<Artists> artists = Model.Artists;
 	List<int> estratto = new List<int>();
@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/CssRubatoW3S.css" asp-append-version="true" />
 </head>
-<html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow-y: hidden">
+<html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow: hidden">
 <body>
 	<div class="right_menu_home">
 		<div style="height:350px">
@@ -62,27 +62,33 @@
 						estratto.Clear();
 						for (int i = 0; i < albums.Count(); i++)
 						{
+							Random random = new Random();
 							int temp;
+							int[] rnd = new int[6];
+							for(int j = 0;j<6;j++)
+							{
+								rnd[j] = random.Next(0, 256);
+							}
 							do
 							{
-								temp = r.Next(0, albums.Count());
+								temp = r.Next(0, Model.MusicTypes.Count());
 							} while (estratto.Contains(temp));
 							estratto.Add(temp);
-							Albums album = albums[estratto[i]];
+							MusicTypes genre = Model.MusicTypes[estratto[i]];
 							<td class="display_playlist" style="align-content:flex-start">
-								<img class="display_img" src="~/media/images/albums/@(album.imgCode)">
-								@{
-									<h3 class="scritta_playlist">
-										@album.name
-									</h3>
-									AlbumSongs song_position = albumsSongs.Find(x => x.albumId == album.albumId);
-									Songs song = songs.Find(x => x.id == song_position.songId);
-									Artists artist = artists.Find(x => x.id == song.artistid);
-									String stampa = "[E] " + artist.artname.ToString();
-									<h5 class="scritta_playlist" style="color:grey">
-										@stampa
-									</h5>
-								}
+								<div class="display_img_genre" style="background-image:linear-gradient(to top left,rgb(@rnd[0],@rnd[1],@rnd[2]), rgb(@rnd[3],@rnd[4],@rnd[5]));">
+
+							</div>
+							@{
+								<h3 class="scritta_playlist">
+									@genre.type
+								</h3>
+
+								string stampa = "Esplora brani " + genre.type;
+								<h5 class="scritta_playlist" style="color:grey">
+									@stampa
+								</h5>
+							}
 							</td>
 						}
 					}
