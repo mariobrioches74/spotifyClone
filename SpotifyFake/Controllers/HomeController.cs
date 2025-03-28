@@ -95,7 +95,11 @@ namespace SpotifyFake.Controllers
 
             return View(new AlbumDetailsViewModel(songs, albums, albumId));
         }
-        
+
+        public IActionResult PopUpAddPlaylist()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
