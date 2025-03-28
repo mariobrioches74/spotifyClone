@@ -75,7 +75,7 @@
 							} while (estratto.Contains(temp));
 							estratto.Add(temp);
 							MusicTypes genre = Model.MusicTypes[estratto[i]];
-							<td class="display_playlist" style="align-content:flex-start">
+							<td class="display_playlist" style="align-content:flex-start; cursor:pointer" onclick="location.href='http://localhost:5101/Home/GenreDetails?typeId=@genre.id'">
 								<div class="display_img_genre" style="background-image:linear-gradient(to top left,rgb(@rnd[0],@rnd[1],@rnd[2]), rgb(@rnd[3],@rnd[4],@rnd[5]));">
 
 							</div>

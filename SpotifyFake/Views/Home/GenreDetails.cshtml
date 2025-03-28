@@ -1,0 +1,58 @@
+﻿@{
+	@model SpotifyFake.ViewModels.GenreDetailsViewModel
+}
+
+<head>
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/CssRubatoW3S.css" asp-append-version="true" />
+</head>
+<html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow-y: hidden">
+
+@{
+	Random r = new Random();
+	int[] estratti = new int[6];
+	for (int i = 0; i < 6; i++)
+	{
+		estratti[i] = r.Next(0, 255);
+	}
+}
+<body>
+	<div class="right_menu_home" style="background-image:linear-gradient(to top left, rgb(@estratti[0],@estratti[1],@estratti[2]), rgb(@estratti[3],@estratti[4],@estratti[5])">
+		<table style="top:20px; left:20px; position:relative; ">
+			<tr>
+				
+				<td style="width:440px; height:440px;">
+
+				</td>
+				<td>
+					<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 100px">
+						@Model.MusicTypes[Model.TypeId-1].type
+					</h1>
+				</td>
+		</table>
+
+		<hr style="top:10px; position:relative" />
+		@foreach (Songs songs in Model.Songs)
+		{
+			<table style="top:50px; left:50px; position:relative; border-spacing:30px">
+				<tr>
+					<td style="align-content:flex-start; height:100px; width:100px">
+						<img class="display_img_songs" src="~/media/images/songs/@(songs.imgCode)">
+					</td>
+					<td style="align-content:flex-start; height:80px; width:300px;">
+						<h2 style="color:white; font-family:'Copperplate Gothic'">
+							@songs.title
+						</h2>
+						<h5 class="scritta_playlist" style="color:grey;">
+							@songs.ArtistArtName
+						</h5>
+					</td>
+				</tr>
+			</table>
+
+		}
+	</div>
+</body>
+
+
+</html>
