@@ -96,6 +96,18 @@ namespace SpotifyFake.Controllers
             return View(new AlbumDetailsViewModel(songs, albums, albumId));
         }
 
+        public IActionResult ArtistDetails(int artistId)
+        {
+            List<Songs> songs = new List<Songs>();
+            List<Artists> artist = new List<Artists>();
+            DatabaseAccess data = new DatabaseAccess();
+
+            artist = data.GetArtists();
+            songs = data.GetArtistSongs(artistId);
+
+            return View(new ArtistDetailsViewModel(songs, artist, artistId));
+        }
+
         public IActionResult PopUpAddPlaylist()
         {
             return View();

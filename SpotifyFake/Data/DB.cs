@@ -97,6 +97,21 @@ namespace SpotifyFake.Data
             }
         }
 
+        public List<Songs> GetArtistSongs(int artistId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+                SELECT 
+                S.*
+                FROM dbo.Songs S
+                INNER JOIN dbo.Artists A ON A.id = S.artistid
+                WHERE A.Id =  @artistId";
+                var songs = connection.Query<Songs>(query, new { artistId }).ToList();
+                return songs;
+            }
+        }
+
         public List<SongMusicTypes> GetSongMusicTypes()
         {
             using (var connection = new SqlConnection(_connectionString))
