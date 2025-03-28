@@ -39,7 +39,7 @@ namespace SpotifyFake.Data
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT id, name, surname, artname FROM dbo.Artists";
+                string query = @"SELECT id, name, surname, artname, imgCode FROM dbo.Artists";
                 var artists = connection.Query<Artists>(query).ToList();
                 return artists;
             }
@@ -110,17 +110,17 @@ WHERE PS.albumId = @albumId";
 
             string query = @"
                 SELECT 
-	                s.id, 
-	                title, 
-	                artistid, 
-	                time, 
-	                imgCode,
-	                ArtistArtName =A.name,
-	                ArtistName = a.artname,
-	                ArtistSurname = a.surname
-                FROM 
-	                dbo.Songs s
-	                INNER JOIN dbo.Artists A ON A.id = S.artistid";
+                s.id, 
+                title, 
+                artistid, 
+                [time], 
+                s.imgCode,
+                ArtistArtName =A.name,
+                ArtistName = A.artname,
+                ArtistSurname = A.surname,
+	            ArtistImgcode = A.imgCode
+	            FROM dbo.Songs S
+                INNER JOIN dbo.Artists A ON A.id = S.artistid";
 
             if (playlistId is not null )
             {
