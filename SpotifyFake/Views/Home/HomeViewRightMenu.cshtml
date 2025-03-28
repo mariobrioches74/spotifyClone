@@ -32,6 +32,7 @@
 							estratto.Add(temp);
 							Albums album = albums[estratto[i]];
 							<td class="display_playlist" style="align-content:flex-start">
+								<a href="http://localhost:5101/Home/AlbumsDetails?albumId=@album.albumId" class="fill-div" style="position:relative "></a>
 								<img class="display_img" src="~/media/images/albums/@(album.imgCode)">
 								@{
 									<h3 class="scritta_playlist">
@@ -113,7 +114,7 @@
 							} while (estratto.Contains(temp));
 							estratto.Add(temp);
 							<td class="display_playlist" style="align-content:flex-start">
-								<img class="display_img" src="~/media/images/albums/">
+								<img style="height:55%" class="display_img" src="~/media/images/artists/@artists[estratto[i]].imgCode">
 								@{
 									<h3 class="scritta_playlist">
 										@artists[estratto[i]].artname
