@@ -118,11 +118,13 @@ namespace SpotifyFake.Data
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-                 SELECT 
-                 S.*
-                 FROM dbo.SongMusicTypes SMT
-                 INNER JOIN dbo.Songs S ON SMT.songId = S.id
-                 WHERE SMT.musicTypeId = @typeId";
+                SELECT 
+                S.*,
+                ArtistArtName = a.artname
+                FROM dbo.SongMusicTypes SMT
+                INNER JOIN dbo.Songs S ON SMT.songId = S.id
+                INNER JOIN dbo.Artists A on S.artistid = a.id
+                WHERE SMT.musicTypeId = @typeId";
                 var songs = connection.Query<Songs>(query, new { typeId }).ToList();
                 return songs;
             }
