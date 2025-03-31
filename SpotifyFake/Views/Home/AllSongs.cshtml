@@ -13,7 +13,7 @@
 	<div class="right_menu_home">
 		@{
 			int cnt = 0;
-		
+		}
 		<table style="border-spacing: 100px 30px">
 			@foreach (Songs songs in Model.Songs)
 			{
@@ -30,27 +30,28 @@
 						</h5>
 					</td>
 					<td style="position:relative;">
-						<h2 class="popup" onclick="myFunction(cnt)" style="color:white; position:relative; left:300px; text-align:center">
+						<div class="popup" onclick="myFunction()" name="@cnt" style="color:white; position:relative; left:300px; text-align:center">
 							...
-							<span class="popuptext" id="cnt" style="position:relative; color:white;">
+							<span class="popuptext" id="@cnt" style="position:relative; color:white;">
 								ADD
 							</span>
-						</h2>
-						
+						</div>
+
 					</td>
 				</tr>
+				cnt++;
 			}
 			
 			<script>
 				// When the user clicks on div, open the popup
-				function myFunction(cnt)
+				function myFunction()
 				{
-				  var popup = document.getElementById(cnt);
+				  var popup = document.getElementById("2");
 				  popup.classList.toggle("show");
 				}
 			</script>
 		</table>
-		}
+		
 	</div>
 	</body>
 </html>
