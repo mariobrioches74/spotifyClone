@@ -140,7 +140,7 @@ namespace SpotifyFake.Controllers
         {
             DatabaseAccess data = new DatabaseAccess();
             data.DeletePlaylist(PlaylistId);
-            return RedirectToAction("HomeViewRightMenu");
+            return RedirectToAction("Index");
         }
 
 
