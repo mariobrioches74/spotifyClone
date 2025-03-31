@@ -103,11 +103,27 @@ namespace SpotifyFake.Data
             {
                 string query = @"
                 SELECT 
-                S.*
+                S.*,
+                ArtistArtName = a.artname,
                 FROM dbo.Songs S
                 INNER JOIN dbo.Artists A ON A.id = S.artistid
-                WHERE A.Id =  @artistId";
+                WHERE A.Id = @artistId";
                 var songs = connection.Query<Songs>(query, new { artistId }).ToList();
+                return songs;
+            }
+        }
+
+        public List<Songs> GetGenreSongs(int typeId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+                 SELECT 
+                 S.*
+                 FROM dbo.SongMusicTypes SMT
+                 INNER JOIN dbo.Songs S ON SMT.songId = S.id
+                 WHERE SMT.musicTypeId = @typeId";
+                var songs = connection.Query<Songs>(query, new { typeId }).ToList();
                 return songs;
             }
         }
@@ -135,8 +151,8 @@ namespace SpotifyFake.Data
                 ArtistArtName =A.artname,
                 ArtistName = A.name,
                 ArtistSurname = A.surname,
-	            ArtistImgcode = A.imgCode
-	            FROM dbo.Songs S
+                ArtistImgcode = A.imgCode
+                FROM dbo.Songs S
                 INNER JOIN dbo.Artists A ON A.id = S.artistid";
 
             if (playlistId is not null )
