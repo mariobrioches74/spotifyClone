@@ -6,10 +6,14 @@
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/CssRubatoW3S.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/bocelli.css" asp-append-version="true" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18))">
 <body>
 	<div class="right_menu_home">
+		@{
+			int cnt = 0;
+		
 		<table style="border-spacing: 100px 30px">
 			@foreach (Songs songs in Model.Songs)
 			{
@@ -21,10 +25,32 @@
 						<h2 style="font-family:'Copperplate Gothic'; color:white">
 							@songs.title
 						</h2>
+						<h5 class="scritta_playlist" style="color:grey">
+							@songs.ArtistArtName
+						</h5>
+					</td>
+					<td style="position:relative;">
+						<h2 class="popup" onclick="myFunction(cnt)" style="color:white; position:relative; left:300px; text-align:center">
+							...
+							<span class="popuptext" id="cnt" style="position:relative; color:white;">
+								ADD
+							</span>
+						</h2>
+						
 					</td>
 				</tr>
 			}
+			
+			<script>
+				// When the user clicks on div, open the popup
+				function myFunction(cnt)
+				{
+				  var popup = document.getElementById(cnt);
+				  popup.classList.toggle("show");
+				}
+			</script>
 		</table>
+		}
 	</div>
 	</body>
 </html>
