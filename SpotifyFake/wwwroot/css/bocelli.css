@@ -8,3 +8,60 @@
     .display_left:hover {
         background-image: linear-gradient(to top left,rgb(34,34,34),rgb(18,18,18));
     }
+.popup {
+    position: relative;
+    cursor:pointer;
+}
+
+    /* The actual popup */
+    .popup .popuptext {
+        visibility: hidden;
+        width: 50px;
+        background-color: #555;
+        color: #fff;
+        text-align: relative;
+        border-radius: 6px;
+        position: relative;
+        right:40px;
+        font-size:18px;
+        top:-30px;
+    }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+            content: "";
+            position: relative;
+            top:28px;
+            right: 20px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+    /* Toggle this class - hide and show the popup */
+    .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
