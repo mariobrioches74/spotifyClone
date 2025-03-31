@@ -104,7 +104,7 @@ namespace SpotifyFake.Data
                 string query = @"
                 SELECT 
                 S.*,
-                ArtistArtName = a.artname,
+                ArtistArtName = a.artname
                 FROM dbo.Songs S
                 INNER JOIN dbo.Artists A ON A.id = S.artistid
                 WHERE A.Id = @artistId";
