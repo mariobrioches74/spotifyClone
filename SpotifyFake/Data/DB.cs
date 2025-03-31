@@ -11,7 +11,7 @@ namespace SpotifyFake.Data
 
         public DatabaseAccess()
         {
-            //_connectionString = "Data Source=localhost;Database=Spotify;Integrated Security = SSPI;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True";  
+            //_connectionString = "Data Source=localhost;Database=Spotify;Integrated Security = SSPI;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True";
             _connectionString = "Data Source=localhost;Database=Spotify;uid=sa;password=Isolutions2021;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True";
         }
 
@@ -186,5 +186,31 @@ namespace SpotifyFake.Data
             }
         }
 
+
+        #region alterDBMethods
+        public void newPlaylist(Playlists newPlaylist)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+INSERT INTO Playlists 
+VALUES 
+(@playlistName,1)";
+                connection.Execute(query, new { playlistName = newPlaylist.name});
+            }
+        }
+
+        public void DeletePlaylist(int playListID)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+DELETE FROM PlaylistSongs WHERE PlaylistId = @playListID
+DELETE FROM Playlists WHERE PlaylistId = @playListID
+";
+                connection.Execute(query, new { playListID });
+            }
+        }
+        #endregion
     }
 }
