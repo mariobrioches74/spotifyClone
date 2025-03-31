@@ -1,39 +1,40 @@
-﻿
-
+﻿@model SpotifyFake.ViewModels.PopUpAddPlaylistViewModel
 
 <head>
-	<link rel="stylesheet" href="~/css/bocelli.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bocelli.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <html style="background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));overflow: hidden">
-	<body>
-		<div class="right_menu_home">
-			<div style="background-image: linear-gradient(to top, #FFFFFF, #00FF00); overflow:hidden; height:500px; width:500px; position:absolute; top:100px; left:400px; border-radius:30px">
-				<table style="border-spacing:0px 30px">
-					<tr>
-						<td style="height: 60px; width:250px; left:125px; position:relative; top:40px; border-radius:15px">
-							<h1 style="text-align:center; color:aliceblue; font-family:'Copperplate Gothic'; font-size:30px">
-								CREA NUOVA PLAYLIST
-							</h1>
-						</td>
-					</tr>
-					<tr>
-						<td class="topnavAdd"  style="background-color:white;overflow: hidden;height: 60px; width:250px; left:125px; position:relative; top:40px; border-radius:15px">
-							<input type="text" placeholder="Insert..">
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<a href="http://localhost:5101/home/AllSongs" style="font-family:'Copperplate Gothic'; text-align:center; color:dimgray; text-decoration:none">
-								<button style="background-color:white; height:50px; width: 120px; border-radius:10px; position:relative; left:200px; top:40px; border-color:white">
-									SAVE
-								</button>
-							</a>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</body>
+<body>
+    <div class="right_menu_home">
+        <div style="background-image: linear-gradient(to top, #FFFFFF, #00FF00); overflow:hidden; height:500px; width:500px; position:absolute; top:100px; left:400px; border-radius:30px">
+            <table style="border-spacing:0px 30px">
+                <tr>
+                    <td style="height: 60px; width:250px; left:125px; position:relative; top:40px; border-radius:15px">
+                        <h1 style="text-align:center; color:aliceblue; font-family:'Copperplate Gothic'; font-size:30px">
+                            CREA NUOVA PLAYLIST
+                        </h1>
+                    </td>
+                </tr>
+
+                @using (Html.BeginForm("AddPlaylist", "Home", FormMethod.Post, new { id = "addPlaylist" }))
+                {
+                    <tr>
+                        <td class="topnavAdd" style="background-color:white; overflow: hidden; height: 60px; width:250px; left:125px; position:relative; top:40px; border-radius:15px">
+                            @Html.TextBoxFor(p => p.newPlaylist.name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(p => p.newPlaylist.name, "", new { @style = "color:red;" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="background-color:white; height:50px; width: 120px; border-radius:10px; position:relative; left:200px; top:40px; border-color:white">
+                                <input type="submit" value="Save" />
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
 </html>

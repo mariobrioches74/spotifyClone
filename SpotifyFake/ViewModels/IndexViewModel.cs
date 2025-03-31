@@ -37,5 +37,8 @@ namespace SpotifyFake.ViewModels
             Songs = songs;
             Users = users;
         }
+
+        public string DeletePlaylistCommandLink(int playlistId)
+             => $"Home/DeletePlaylist?playlistId={playlistId}";
     }
 }

@@ -121,8 +121,28 @@ namespace SpotifyFake.Controllers
 
         public IActionResult PopUpAddPlaylist()
         {
-            return View();
+            var model = new PopUpAddPlaylistViewModel
+            {
+                newPlaylist = new Playlists()  
+            };
+            return View(model);
         }
+
+        [HttpPost]
+        public IActionResult AddPlaylist(PopUpAddPlaylistViewModel model)
+        {
+            DatabaseAccess data = new DatabaseAccess();
+            data.newPlaylist(model.newPlaylist);
+            return RedirectToAction("HomeViewRightMenu"); 
+        }
+
+        public async Task<IActionResult> DeletePlaylist(int PlaylistId)
+        {
+            DatabaseAccess data = new DatabaseAccess();
+            data.DeletePlaylist(PlaylistId);
+            return RedirectToAction("HomeViewRightMenu");
+        }
+
 
         public IActionResult AllSongs()
         {
