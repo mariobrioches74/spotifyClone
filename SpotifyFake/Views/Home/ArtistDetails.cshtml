@@ -19,9 +19,6 @@
 					<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 100px">
 						@Model.Artists[Model.ArtistId-1].artname
 					</h1>
-					<h3 style="font-size:60px; color: grey; position:relative; top:75px; left: 100px">
-						@Model.Songs[0].ArtistArtName
-					</h3>
 				</td>
 		</table>
 
@@ -37,8 +34,8 @@
 						<h2 style="color:white; font-family:'Copperplate Gothic'">
 							@songs.title
 						</h2>
-						<h5 class="scritta_playlist" style="color:grey;">
-							@songs.ArtistArtName
+						<h5 style="color:grey;font-family:'Copperplate Gothic'">
+							@songs.ArtistArtName;
 						</h5>
 					</td>
 				</tr>
