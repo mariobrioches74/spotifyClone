@@ -147,8 +147,8 @@ namespace SpotifyFake.Data
                 artistid, 
                 [time], 
                 s.imgCode,
-                ArtistArtName =A.name,
-                ArtistName = A.artname,
+                ArtistArtName =A.artname,
+                ArtistName = A.name,
                 ArtistSurname = A.surname,
 	            ArtistImgcode = A.imgCode
 	            FROM dbo.Songs S
