@@ -13,25 +13,56 @@
 		{
 			<div class="right_menu_home">
 				<table style="top:20px; left:20px; position:relative">
-					<tr style="width:220px">
+					<tr>
 						<td class="display_playlist_songs" style="align-content:flex-start">
 							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
 						</td>
 						<td class="display_playlist_songs" style="align-content:flex-start">
-							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
+							@if(Model.Songs.Count() > 1)
+							{
+								<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[1].imgCode)">
+							}
+							else
+							{
+								<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
+							}	
 						</td>
-						<td>
-							<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 200px">
+						<td width="600px" style="text-align:center">
+							<h1 style="font-size:65px; color:white; position:relative; top:70px">
 								@Model.Playlist[0].name
 							</h1>
 						</td>
+						<td>
+							<h3 style="color:white; font-family:'Copperplate Gothic'; position:relative; left:250px; top:50px">
+								ADD SONG
+							</h3>
+						</td>
 					</tr>
-					<tr style="width:220px">
+					<tr>
 						<td class="display_playlist_songs" style="align-content:flex-start">
-							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
+							@if (Model.Songs.Count() > 2)
+							{
+								<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[2].imgCode)">
+							}
+							else
+							{
+								<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
+							}
 						</td>
 						<td class="display_playlist_songs" style="align-content:flex-start">
-							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
+							@if (Model.Songs.Count() > 3)
+							{
+								<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[3].imgCode)">
+							}
+							else
+							{
+								<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
+							}
+						</td>
+						<td>
+							<a style="color:white; font-size:60px; text-align:center; text-decoration:none; position:relative; left: 900px; top:-58px" href="http://localhost:5101/home/AllSongs?playlistId=@Model.PlaylistId">
+								+
+							</a>
 						</td>
 					</tr>
 				</table>
