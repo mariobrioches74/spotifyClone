@@ -36,14 +36,12 @@
 							@if (Model.Playlistsongs.Find(x => x.id == songs.id) == null)
 							{
 								<span class="popuptext" id="@cnt" style="position:relative; color:white;">
-
 									<a href="~/@Model.AddSongToPlaylistCommandLink(Model.PlaylistId, songs.id)">
 										ADD
 									</a>
 								</span>
 							}
-					</div>
-
+						</div>
 					</td>
 				</tr>
 				cnt++;
@@ -59,7 +57,6 @@
 				}
 			</script>
 		</table>
-		
 	</div>
 	</body>
 </html>
