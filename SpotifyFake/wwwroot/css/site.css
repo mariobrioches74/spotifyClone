@@ -2,8 +2,6 @@ html {
     font-size: 14px;
     background-color: black;
     width: 100%;
-    height: 100%;
-    scrollbar-gutter: stable both-edges;
 }
 
 /* three base menu(top full, left, right) */
@@ -35,7 +33,6 @@ html {
     position: absolute;
     background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));
     overflow: hidden;
-    scrollbar-gutter: stable both-edges;
     width: 77%;
     border-radius: 5px;
     right: 1%;
@@ -82,7 +79,6 @@ html {
     background-color: black;
     position: absolute;
     border: none;
-    scrollbar-gutter: stable both-edges;
     top: 10px;
     left: 65px;
 }
@@ -113,7 +109,6 @@ html {
 .topnavAdd {
     overflow: hidden;
     position: absolute;
-    scrollbar-gutter: stable both-edges;
     border: none;
     left: 65px;
 }
