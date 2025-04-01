@@ -2,12 +2,13 @@ html {
     font-size: 14px;
     background-color: black;
     width: 100%;
+    height:100%
 }
 
 /* three base menu(top full, left, right) */
 
 .top_menu {
-    width: 1900px;
+    width: 100%;
     height: 65px;
     background-color: black
 }
@@ -19,10 +20,10 @@ html {
     border-radius: 5px;
     position: absolute;
     top: 70px;
-    overflow-y:hidden;
+    overflow:hidden;
 }
 .left_menu:hover{
-    overflow-y:auto;
+    overflow:auto;
 }
 
 .right_menu { /*base of the right menu*/
@@ -39,13 +40,13 @@ html {
 .right_menu_home { /* state of the right menu when in home page*/
     background-color: none;
     width: 100%;
-    height: 880px;
+    height: 100%;
     scrollbar-gutter: stable;
     overflow: hidden;
 
 }
     .right_menu_home:hover {
-        overflow-y: auto;
+        overflow: auto;
         transition: all 1.3s ease-in-out;
     }
 
@@ -139,6 +140,7 @@ html {
 
 ::-webkit-scrollbar { /* width */
     width: 8px;
+    scrollbar-gutter:stable;
 }
 
 ::-webkit-scrollbar-track { /* Track */
@@ -213,12 +215,12 @@ a.fill-div {
     text-decoration: none;
 }
 
-
 .playlist_list {
     color: white;
     font-family: 'Copperplate Gothic';
     text-align: center;
     line-height: 40px;
+    max-width:100%;
 }
 
 .delete{
@@ -226,6 +228,65 @@ a.fill-div {
     text-decoration:none;
     position:relative;
     top:10px;
+}
+.label_playlist {
+    color: white;
+    font-family: 'Copperplate Gothic';
+    position: absolute;
+    left: 70px
+}
+.bt_aggiungiPlaylist {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    left: 225px;
+    top: -43px;
+
+}
+.nomePlaylist {
+    opacity: 1;
+    z-index: 0;
+    text-decoration: none;
+    color: white
+}
+
+.immaginePlaylist {
+    opacity: 0;
+    z-index: 0;
+    position: relative;
+    top: -10px;
+    width: 35px;
+    border-radius: 3px;
+    height: 35px;
+}
+
+@media screen and (max-width: 1000px) {
+    .label_playlist{
+        opacity:0;
+        z-index:0;
+    }
+    .bt_aggiungiPlaylist {
+        color: white;
+        font-size: 50px;
+        position: absolute;
+        left: 10px;
+        top: -43px;
+        z-index:1;
+    }
+
+    .nomePlaylist{
+        opacity:0;
+        z-index:0;
+    }
+    .immaginePlaylist {
+        opacity: 1;
+        z-index: 1;
+        position: relative;
+        top: -55px;
+        width: 35px;
+        border-radius: 3px;
+        height: 35px;
+    }
 }
 
 
