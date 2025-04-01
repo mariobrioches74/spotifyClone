@@ -5,17 +5,17 @@ namespace SpotifyFake.ViewModels
     public class PlaylistDetails
     {
         private List<Songs> songs;
-        private List<Playlists> playlists;
+        private List<Playlists> playlist;
         private int playlistId;
 
         public List<Songs> Songs { get => songs; set => songs = value; }
-        public List<Playlists> Playlists { get => playlists; set => playlists = value; }
         public int PlaylistId { get => playlistId; set => playlistId = value; }
+        public List<Playlists> Playlist { get => playlist; set => playlist = value; }
 
-        public PlaylistDetails(List<Songs> songs, List<Playlists> playlists, int playlistId)
+        public PlaylistDetails(List<Songs> songs, List<Playlists> playlist, int playlistId)
         {
             Songs = songs;
-            Playlists = playlists;
+            Playlist = playlist;
             PlaylistId = playlistId;
         }
     }
