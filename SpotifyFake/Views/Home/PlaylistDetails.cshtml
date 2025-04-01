@@ -60,7 +60,7 @@
 							}
 						</td>
 						<td>
-							<a style="color:white; font-size:60px; text-align:center; text-decoration:none; position:relative; left: 900px; top:-58px" href="http://localhost:5101/home/AllSongs?playlistId=@Model.PlaylistId">
+							<a style="color:white; font-size:60px; text-align:center; text-decoration:none; position:relative; left: 900px; top:-58px; cursor:pointer" href="http://localhost:5101/home/AllSongs?playlistId=@Model.PlaylistId">
 								+
 							</a>
 						</td>
@@ -75,10 +75,10 @@
 								<img class="display_img_songs" src="~/media/images/songs/@(songs.imgCode)">
 							</td>
 							<td style="align-content:flex-start; height:80px; width:300px; position:relative; left:50px;">
-								<h2 style="color:white; font-family:'Copperplate Gothic'">
+								<h2 style="color:white; font-family:'Copperplate Gothic';cursor:pointer" onclick="location.href='http://localhost:5101/home/SongDetails?songId=@songs.id'">
 									@songs.title
 								</h2>
-								<h5 class="scritta_playlist" style="color:grey">
+								<h5 class="scritta_playlist" style="color:grey;cursor:pointer" onclick="location.href='http://localhost:5101/home/ArtistDetails?artistId=@songs.artistid'">
 									@songs.ArtistArtName
 								</h5>
 							</td>

@@ -107,6 +107,15 @@ namespace SpotifyFake.Controllers
 
             return View(new ArtistDetailsViewModel(songs, artist, artistId));
         }
+        public IActionResult SongDetails(int songId)
+        {
+            Songs song = new Songs();
+            DatabaseAccess data = new DatabaseAccess();
+
+            song = data.GetSongDetail(songId);
+
+            return View(new SongDetail(song, songId));
+        }
         public IActionResult GenreDetails(int typeId)
         {
             List<Songs> songs = new List<Songs>();
