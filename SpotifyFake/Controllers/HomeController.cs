@@ -161,7 +161,12 @@ namespace SpotifyFake.Controllers
             return RedirectToAction("HomeViewRightMenu");
         }
 
-
+        public async Task<IActionResult> DeleteSongsFromPlaylist(int playlistId, int songId)
+        {
+            DatabaseAccess data = new DatabaseAccess();
+            data.DeleteSongsFromPlaylist(playlistId, songId);
+            return RedirectToAction("HomeViewRightMenu");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

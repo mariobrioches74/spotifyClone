@@ -230,13 +230,26 @@ namespace SpotifyFake.Data
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string queri = @"
+                string query = @"
                 INSERT INTO PlaylistSongs
                 VALUES
                 (@playlistID, @songID)";
-                connection.Execute(queri, new { playlistID, songID });
+                connection.Execute(query, new { playlistID, songID });
             }
         }
+
+        public void DeleteSongsFromPlaylist(int playlistID, int songID)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+                DELETE FROM PlaylistSongs
+                WHERE playlistId = @playlistID AND 
+                songId = @songID";
+                connection.Execute(query, new { playlistID, songID });
+            }
+        }
+
         #endregion
     }
 }
