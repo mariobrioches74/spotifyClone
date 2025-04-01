@@ -36,9 +36,9 @@ html {
     background-image: linear-gradient(rgb(34,34,34),rgb(18,18,18));
     overflow: hidden;
     scrollbar-gutter: stable both-edges;
-    width: 79%;
+    width: 77%;
     border-radius: 5px;
-    right: 4%;
+    right: 1%;
     top: 70px;
 }
 
