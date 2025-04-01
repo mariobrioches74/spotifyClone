@@ -63,6 +63,21 @@ namespace SpotifyFake.Data
                 return ps;
             }
         }
+        public Songs GetSongDetail(int songId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+                SELECT S.*,
+                ArtistArtName = a.artname,
+                ArtistId = a.id
+                FROM dbo.Songs S
+                INNER JOIN dbo.Artists A ON A.id = S.artistid
+                WHERE s.id = @songId";
+                var song = connection.Query<Songs>(query, new { songId }).ToList();
+                return song[0];
+            }
+        }
 
 
         public List<Playlists> GetPlaylists(int? playlistId)
@@ -85,7 +100,7 @@ namespace SpotifyFake.Data
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-                SELECT S.*,ArtistName = A.name, ArtistArtName = a.artname,ArtistSurName = a.surname
+                SELECT S.*,ArtistName = A.name, ArtistArtName = a.artname,ArtistSurName = a.surname,ArtistId = a.id
                 FROM dbo.PlaylistSongs PS
                 INNER JOIN dbo.Songs S ON PS.songId = S.id
                 INNER JOIN dbo.Artists A ON A.id = S.artistid
@@ -102,7 +117,7 @@ namespace SpotifyFake.Data
                 string query = @"
                 SELECT 
                 S.*,
-                ArtistArtName = a.artname
+                ArtistArtName = a.artname,ArtistId = a.id
                 FROM dbo.AlbumSongs ASS
                 INNER JOIN dbo.Songs S ON ASS.songId = S.id
                 INNER JOIN dbo.Artists A ON A.id = S.artistid
@@ -135,7 +150,7 @@ namespace SpotifyFake.Data
                 string query = @"
                 SELECT 
                 S.*,
-                ArtistArtName = a.artname
+                ArtistArtName = a.artname,ArtistId = a.id
                 FROM dbo.SongMusicTypes SMT
                 INNER JOIN dbo.Songs S ON SMT.songId = S.id
                 INNER JOIN dbo.Artists A on S.artistid = a.id

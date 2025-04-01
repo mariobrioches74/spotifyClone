@@ -31,10 +31,11 @@
 							}while (estratto.Contains(temp));
 							estratto.Add(temp);
 							Albums album = albums[estratto[i]];
-							<td onclick="location.href='http://localhost:5101/Home/AlbumDetails?albumId=@album.albumId'" class="display_playlist" style="align-content:flex-start;z-index:1;cursor: pointer;">
+							<td onclick="location.href='http://localhost:5101/Home/AlbumDetails?albumId=@album.albumId'" class="display_playlist" style="z-index:0;align-content:flex-start;z-index:1;cursor: pointer;">
 								<img class="display_img" src="~/media/images/albums/@(album.imgCode)">
 								@{
 									<h3 class="scritta_playlist">
+									<a>
 										@album.name
 									</h3>
 									AlbumSongs song_position = albumsSongs.Find(x => x.albumId == album.albumId);
@@ -42,7 +43,10 @@
 									Artists artist = artists.Find(x => x.id == song.artistid);
 									String stampa = "[E] " + artist.artname.ToString();
 									<h5 class="scritta_playlist" style="color:grey">
-										@stampa
+										<a onclick="location.href='http://localhost:5101/home/ArtistDetails?artistId=@artist.id'" style="cursor:pointer;z-index:1">
+											@stampa
+										</a>
+			
 									</h5>
 								}
 							</td>

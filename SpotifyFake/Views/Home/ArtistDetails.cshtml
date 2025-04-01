@@ -33,7 +33,7 @@ Songs		</h1>
 						<img class="display_img_songs" src="~/media/images/songs/@(songs.imgCode)">
 					</td>
 					<td style="align-content:flex-start; height:80px; width:300px;">
-						<h2 style="color:white; font-family:'Copperplate Gothic'">
+						<h2 style="color:white; font-family:'Copperplate Gothic';cursor:pointer" onclick="location.href='http://localhost:5101/home/SongDetails?songId=@songs.id'">
 							@songs.title
 						</h2>
 						<h5 style="color:grey;font-family:'Copperplate Gothic'">
