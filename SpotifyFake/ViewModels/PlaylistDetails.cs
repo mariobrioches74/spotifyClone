@@ -18,5 +18,8 @@ namespace SpotifyFake.ViewModels
             Playlist = playlist;
             PlaylistId = playlistId;
         }
+
+        public string DeleteSongsFromPlaylistCommandLink(int playlistID, int songID)
+            => $"Home/DeleteSongsFromPlaylist?playlistId={playlistID}&songId={songID}";
     }
 }
