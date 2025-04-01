@@ -18,25 +18,24 @@
     .popup .popuptext {
         visibility: hidden;
         width: 50px;
-        background-color: dimgrey;
-        color: white;
         border-radius: 3px;
         position: relative;
-        right:40px;
+        right:35px;
         text-align:right;
         font-size:18px;
-        top:-30px;
+        top:-21px;
     }
 
         /* Popup arrow */
         .popup .popuptext::after {
             content: "";
             position: relative;
-            top:27px;
-            right: 20px;
+            top:24px;
+            right: 23px;
             border-width: 5px;
             border-style: solid;
-            border-color: #555 transparent transparent transparent;
+            border-color: white transparent transparent transparent;
+            color:white;
         }
 
     /* Toggle this class - hide and show the popup */

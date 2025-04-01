@@ -12,7 +12,7 @@
 <body>
 	<div class="right_menu_home">
 		@{
-			int cnt = 0;
+			int cnt = 1;
 			int punti = (Model.Songs.Count() + 1);
 		}
 		<table style="border-spacing: 100px 30px">
@@ -33,10 +33,16 @@
 					<td style="position:relative;">
 						<div class="popup" onclick="myFunction(this)"  id="@punti" style="color:white; position:relative; left:300px;">
 							...
-							<span class="popuptext" id="@cnt" style="position:relative; color:white;">
-								ADD
-							</span>
-						</div>
+							@if (Model.Playlistsongs.Find(x => x.id == songs.id) == null)
+							{
+								<span class="popuptext" id="@cnt" style="position:relative; color:white;">
+
+									<a href="~/@Model.AddSongToPlaylistCommandLink(Model.PlaylistId, songs.id)">
+										ADD
+									</a>
+								</span>
+							}
+					</div>
 
 					</td>
 				</tr>
@@ -48,7 +54,7 @@
 				// When the user clicks on div, open the popup
 				function myFunction(element)
 				{
-					var popup = document.getElementById(element.id-(@Model.Songs.Count()+1));
+					var popup = document.getElementById(element.id-(@Model.Songs.Count()))
 					popup.classList.toggle("show");
 				}
 			</script>

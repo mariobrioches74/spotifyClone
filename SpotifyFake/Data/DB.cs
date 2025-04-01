@@ -65,12 +65,17 @@ namespace SpotifyFake.Data
         }
 
 
-        public List<Playlists> GetPlaylists()
+        public List<Playlists> GetPlaylists(int? playlistId)
         {
+            string query = @"SELECT playlistId, name, userId FROM dbo.Playlists";
+
+            if (playlistId is not null)
+            {
+                query += (" WHERE playlistId = @playlistId");
+            }
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT playlistId, name, userId FROM dbo.Playlists";
-                var playlists = connection.Query<Playlists>(query).ToList();
+                var playlists = connection.Query<Playlists>(query, new { playlistId }).ToList();
                 return playlists;
             }
         }
@@ -203,9 +208,9 @@ namespace SpotifyFake.Data
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-INSERT INTO Playlists 
-VALUES 
-(@playlistName,1)";
+                INSERT INTO Playlists 
+                VALUES 
+                (@playlistName,1)";
                 connection.Execute(query, new { playlistName = newPlaylist.name});
             }
         }
@@ -215,10 +220,21 @@ VALUES
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-DELETE FROM PlaylistSongs WHERE PlaylistId = @playListID
-DELETE FROM Playlists WHERE PlaylistId = @playListID
-";
+                DELETE FROM PlaylistSongs WHERE PlaylistId = @playListID
+                DELETE FROM Playlists WHERE PlaylistId = @playListID
+                ";
                 connection.Execute(query, new { playListID });
+            }
+        }
+        public void AddSongsToPlaylist(int playlistID, int songID)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string queri = @"
+                INSERT INTO PlaylistSongs
+                VALUES
+                (@playlistID, @songID)";
+                connection.Execute(queri, new { playlistID, songID });
             }
         }
         #endregion

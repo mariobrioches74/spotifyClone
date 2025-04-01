@@ -18,20 +18,20 @@
 							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
 						</td>
 						<td class="display_playlist_songs" style="align-content:flex-start">
-							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[1].imgCode)">
+							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
 						</td>
 						<td>
 							<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 200px">
-								@Model.Playlists[Model.PlaylistId - 1].name
+								@Model.Playlist[0].name
 							</h1>
 						</td>
 					</tr>
 					<tr style="width:220px">
 						<td class="display_playlist_songs" style="align-content:flex-start">
-							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[2].imgCode)">
+							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
 						</td>
 						<td class="display_playlist_songs" style="align-content:flex-start">
-							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[3].imgCode)">
+							<img class="display_img_songs" src="~/media/images/songs/@(Model.Songs[0].imgCode)">
 						</td>
 					</tr>
 				</table>
@@ -64,7 +64,7 @@
 					QUESTA PLAYLIST E' VUOTA
 				</h2>
 				<h2 style="color:white; text-align:center;">
-					<a href="http://localhost:5101/home/AllSongs">
+					<a href="http://localhost:5101/home/AllSongs?playlistId=@Model.PlaylistId">
 						AGGIUNGI CANZONI
 					</a>
 				</h2>

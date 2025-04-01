@@ -32,7 +32,7 @@ namespace SpotifyFake.Controllers
             albumSongs = data.GetAlbumSongs();
             artists = data.GetArtists();
             musicTypes = data.GetMusicTypes();
-            playlists = data.GetPlaylists();
+            playlists = data.GetPlaylists(null);
             playlistSongs = data.GetPSongs();
             songMusicTypes = data.GetSongMusicTypes();
             songs = data.GetSongs(null,null);
@@ -62,7 +62,7 @@ namespace SpotifyFake.Controllers
             albumSongs = data.GetAlbumSongs();
             artists = data.GetArtists();
             musicTypes = data.GetMusicTypes();
-            playlists = data.GetPlaylists();
+            playlists = data.GetPlaylists(null);
             //playlistSongs = data.GetPlaylistSongs();
             songMusicTypes = data.GetSongMusicTypes();
             songs = data.GetSongs(null, null);
@@ -74,14 +74,14 @@ namespace SpotifyFake.Controllers
         public IActionResult PlaylistDetails(int playlistId)
         {
             List<Songs> songs = new List<Songs>();
-            List<Playlists> playlists = new List<Playlists>();
+            List<Playlists> playlist = new List<Playlists>();
 
             DatabaseAccess data = new DatabaseAccess();
 
-            playlists = data.GetPlaylists();
+            playlist = data.GetPlaylists(playlistId);
             songs = data.GetPlaylistSongs(playlistId);            
 
-            return View(new PlaylistDetails(songs, playlists, playlistId));
+            return View(new PlaylistDetails(songs, playlist, playlistId));
         }
 
         public IActionResult AlbumDetails(int albumId)
@@ -133,7 +133,7 @@ namespace SpotifyFake.Controllers
         {
             DatabaseAccess data = new DatabaseAccess();
             data.newPlaylist(model.newPlaylist);
-            return RedirectToAction("HomeViewRightMenu"); 
+            return RedirectToAction("Index"); 
         }
 
         public async Task<IActionResult> DeletePlaylist(int PlaylistId)
@@ -143,14 +143,25 @@ namespace SpotifyFake.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public IActionResult AllSongs()
+        public IActionResult AllSongs(int playlistId)
         {
+            List<Songs> playlistsongs = new List<Songs>();
             List<Songs> songs = new List<Songs>();
             DatabaseAccess data = new DatabaseAccess();
+
+            playlistsongs = data.GetSongs(playlistId, null);
             songs = data.GetSongs(null, null);
-            return View(new AllSongsViewModel(songs));
+            return View(new AllSongsViewModel(songs, playlistId, playlistsongs));
         }
+
+        public IActionResult AddSongsToPlaylist(int playlistId, int songId)
+        {
+            DatabaseAccess data = new DatabaseAccess();
+            data.AddSongsToPlaylist(playlistId, songId);
+            return RedirectToAction("HomeViewRightMenu");
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
