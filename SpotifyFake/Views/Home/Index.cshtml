@@ -9,7 +9,7 @@
 <body>
 	<header class="top_menu" >
 		<button type="button" class="home_button">
-			<a href="http://localhost:5101/home/HomeViewRightMenu" target="iframe_home" style="opacity:0;font-size:200%">
+			<a href="http://localhost:5101/home/HomeViewRightMenu" target="iframe_home" style="opacity:0;font-size:200%;text-align:left">
 				OI
 			</a>
 		</button>
@@ -18,39 +18,48 @@
 		</div>
 	</header>
 	<div class="right_menu">
-		<iframe src="http://localhost:5101/Home/HomeViewRightMenu" style="border:none" height="100%" width="100%" name="iframe_home">
+		<iframe src="http://localhost:5101/Home/HomeViewRightMenu" style="border:none" height="100%" width="100%" name="iframe_home" id="iframe_home">
 
 		</iframe>
 	</div>
 	<div class="left_menu" >
 
-		<div style="height:50px">
-			<h2 style="color:white; font-family:'Copperplate Gothic'; position:absolute; left:70px">
+		<div style="height:50px; width:100%">
+			<h2 class="label_playlist" >
 				PLAYLIST   
 			</h2>
-			<h2 style="color:white;font-size:50px; position:absolute; left: 300px; top: -43px">
+			<h2 class="bt_aggiungiPlaylist">
 				<a href="http://localhost:5101/home/PopUpAddPlaylist" target="iframe_home" style="text-decoration:none; color:white">
 					+
 				</a>
 			</h2>
 		</div>
 		<hr style="border: 3px solid dimgrey">
-		<table>
+		<table style="width:100%">
 			@foreach (Playlists playlists in Model.Playlists)
 			{
-				<tr style="border-bottom:solid 2px grey">
-					<td style="width:25% ">
+				<tr style="border-bottom:solid 2px grey;width:100%">
+					<td style="width:10% ">
 						<a class="delete" href="~/@Model.DeletePlaylistCommandLink(playlists.playlistId)">
 							X
 						</a>
 					</td>
-					<td style ="width:75%">
+					<td style="width:90%;cursor:pointer" onclick=" document.getElementById('iframe_home').src = 'http://localhost:5101/home/PlaylistDetails?playlistId=@playlists.playlistId'">
 						<div class="display_left">
-								<h2 class="playlist_list">
-									<a href="http://localhost:5101/home/PlaylistDetails?playlistId=@playlists.playlistId" target="iframe_home" style="text-decoration:none; color:white">
-										@playlists.name
-									</a>
-								</h2>
+							<h2 class="playlist_list">
+								<a class="nomePlaylist">
+									@playlists.name
+								</a>
+							</h2>
+							@{
+								Songs songs = new Songs();
+								PlaylistSongs ps = Model.PlaylistSongs.Find(x => x.playlistId == playlists.playlistId);
+								if (ps != null)
+								{
+									songs = Model.Songs.Find(x => x.id == ps.songId);
+								}
+							}
+							<img src="~/media/images/songs/@songs.imgCode" alt="no img" class="immaginePlaylist">
 						</div>
 					</td>
 				</tr>

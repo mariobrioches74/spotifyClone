@@ -33,7 +33,7 @@ namespace SpotifyFake.Controllers
             artists = data.GetArtists();
             musicTypes = data.GetMusicTypes();
             playlists = data.GetPlaylists(null);
-            //playlistSongs = data.GetPlaylistSongs();
+            playlistSongs = data.GetPSongs();
             songMusicTypes = data.GetSongMusicTypes();
             songs = data.GetSongs(null,null);
             users = data.GetUsers();

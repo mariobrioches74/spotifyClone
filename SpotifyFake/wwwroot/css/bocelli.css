@@ -1,6 +1,7 @@
 ﻿.display_left {
     height: 40px;
-    width: 370px;
+    min-width:100%;
+    max-width:100%;
     background-image: none;
     transition-duration: 1s;
 }
