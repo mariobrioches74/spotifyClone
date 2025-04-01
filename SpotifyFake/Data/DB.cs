@@ -54,6 +54,16 @@ namespace SpotifyFake.Data
                 return musicTypes;
             }
         }
+        public List<PlaylistSongs> GetPSongs()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"SELECT playlistId, songId FROM dbo.PlaylistSongs";
+                var ps = connection.Query<PlaylistSongs>(query).ToList();
+                return ps;
+            }
+        }
+
 
         public List<Playlists> GetPlaylists()
         {
