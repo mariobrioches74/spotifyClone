@@ -19,7 +19,7 @@
 				<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 100px">
 					@Model.Albums[Model.AlbumId-1].name
 				</h1>
-					<h3 style="font-size:60px; color: grey; position:relative; top:75px; left: 100px">
+					<h3 style="font-size:60px; color: grey; position:relative; top:75px; left: 100px;cursor:pointer" onclick="location.href='http://localhost:5101/home/ArtistDetails?artistId=@Model.Songs[0].artistid'">
 						@Model.Songs[0].ArtistArtName
 					</h3>
 			</td>
