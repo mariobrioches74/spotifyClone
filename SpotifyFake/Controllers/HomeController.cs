@@ -28,7 +28,7 @@ namespace SpotifyFake.Controllers
             List<Users> users = new List<Users>();
 
             DatabaseAccess data =  new  DatabaseAccess();
-            albums = data.GetAlbums();
+            albums = data.GetAlbums(null);
             albumSongs = data.GetAlbumSongs();
             artists = data.GetArtists();
             musicTypes = data.GetMusicTypes();
@@ -58,7 +58,7 @@ namespace SpotifyFake.Controllers
             List<Users> users = new List<Users>();
 
             DatabaseAccess data = new DatabaseAccess();
-            albums = data.GetAlbums();
+            albums = data.GetAlbums(null);
             albumSongs = data.GetAlbumSongs();
             artists = data.GetArtists();
             musicTypes = data.GetMusicTypes();
@@ -90,7 +90,7 @@ namespace SpotifyFake.Controllers
             List<Albums> albums = new List<Albums>();
             DatabaseAccess data = new DatabaseAccess();
 
-            albums = data.GetAlbums();
+            albums = data.GetAlbums(null);
             songs = data.GetAlbumSongs(albumId);
 
             return View(new AlbumDetailsViewModel(songs, albums, albumId));
@@ -99,13 +99,15 @@ namespace SpotifyFake.Controllers
         public IActionResult ArtistDetails(int artistId)
         {
             List<Songs> songs = new List<Songs>();
+            List<Albums> albums = new List<Albums>();
             List<Artists> artist = new List<Artists>();
             DatabaseAccess data = new DatabaseAccess();
 
+            albums = data.GetAlbums(artistId);
             artist = data.GetArtists();
             songs = data.GetArtistSongs(artistId);
 
-            return View(new ArtistDetailsViewModel(songs, artist, artistId));
+            return View(new ArtistDetailsViewModel(songs, artist, albums, artistId));
         }
         public IActionResult SongDetails(int songId)
         {

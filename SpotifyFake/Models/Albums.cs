@@ -5,6 +5,6 @@
         public int albumId { get; set; }
         public string name { get; set; }
         public string imgCode { get; set; }
-
+        public string ArtistArtName { get; set; }
     }
 }

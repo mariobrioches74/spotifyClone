@@ -2,6 +2,7 @@
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Linq;
+using System.Security.AccessControl;
 
 namespace SpotifyFake.Data
 {
@@ -15,12 +16,21 @@ namespace SpotifyFake.Data
             _connectionString = "Data Source=localhost;Database=Spotify;uid=sa;password=Isolutions2021;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True";
         }
 
-        public List<Albums> GetAlbums()
+        public List<Albums> GetAlbums(int? artistId)
         {
+
+            string query = @"SELECT * FROM dbo.Albums A ";
+            if(artistId is not null)
+            {
+                query = (@" SELECT DISTINCT A.*, ArtistArtName = AR.artname FROM dbo.Albums A
+                            INNER JOIN dbo.AlbumSongs ASS ON ASS.albumId = A.albumId
+                            INNER JOIN dbo.Songs S ON ASS.songId = S.id
+                            INNER JOIN dbo.Artists AR ON AR.id = S.artistid 
+                            WHERE A.albumId = @artistId");
+            }
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT albumId, name, imgCode FROM dbo.Albums";
-                var albums = connection.Query<Albums>(query).ToList();
+                var albums = connection.Query<Albums>(query, new {artistId}).ToList();
                 return albums;
             }
         }
