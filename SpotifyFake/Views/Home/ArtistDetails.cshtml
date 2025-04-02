@@ -24,7 +24,8 @@
 
 		<hr style="top:10px; position:relative" />
 		<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 100px">
-Songs		</h1>
+			Songs
+		</h1>
 		@foreach (Songs songs in Model.Songs)
 		{
 			<table style="top:50px; left:50px; position:relative; border-spacing:30px">
@@ -37,13 +38,39 @@ Songs		</h1>
 							@songs.title
 						</h2>
 						<h5 style="color:grey;font-family:'Copperplate Gothic'">
-							@songs.ArtistArtName;
+							@songs.ArtistArtName
 						</h5>
 					</td>
 				</tr>
 			</table>
-
 		}
+		@if(Model.Albums.Count() != 0)
+		{
+			<hr style="color:white; position:relative; top:70px" />
+			<h1 style="font-size:80px; color:white; position:relative; top:75px; left: 100px">
+				Albums
+			</h1>
+			foreach (Albums albums in Model.Albums)
+			{
+				<table style="top:50px; left:50px; position:relative; border-spacing:30px">
+					<tr>
+						<td style="align-content:flex-start; height:100px; width:100px">
+							<img class="display_img_songs" src="~/media/images/albums/@(albums.imgCode)">
+						</td>
+						<td style="align-content:flex-start; height:80px; width:300px;">
+							<h2 style="color:white; font-family:'Copperplate Gothic';cursor:pointer" onclick="location.href='http://localhost:5101/home/AlbumDetails?albumId=@albums.albumId'">
+								@albums.name
+							</h2>
+							<h5 style="color:grey;font-family:'Copperplate Gothic'">
+								@albums.ArtistArtName
+							</h5>
+						</td>
+					</tr>
+				</table>
+			}
+		}
+		
+
 	</div>
 </body>
 
