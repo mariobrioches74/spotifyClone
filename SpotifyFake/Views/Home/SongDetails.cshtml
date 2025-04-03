@@ -33,8 +33,16 @@
 					</h3>
 				</td>
 			</tr>
+
 		</table>
 		<hr style="top:10px; position:relative" />
+		<audio id="audioPlayer" controls>
+			<source src="@Url.Content($"~/media/songs/{Model.Songs.title}_{Model.Songs.ArtistArtName}.mp3")" type="audio/mpeg">
+		</audio>
+
+		<br />
+
+		
 	</div>
 </body>
 </html>
