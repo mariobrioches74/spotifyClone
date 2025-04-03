@@ -35,7 +35,8 @@ VALUES
 ('Morad', 'El Horami', 'Morad', 'MORAD.jpg'),
 ('Lamine', 'Saida', 'Simba La Rue', 'SIMBA LA RUE.jpg'),
 ('William', 'Hickman', 'Mambolosco', 'MAMBOLOSCO.jpg'),
-('Alternate', 'Direct', 'ACDC', 'ACDC.jpg')
+('Alternate', 'Direct', 'ACDC', 'ACDC.jpg'),
+('Isolutions', 'AI','Robot', 'ROBOT.jpg')
 
 
 
@@ -102,7 +103,14 @@ VALUES
 ('Demon Fire', (SELECT id from Artists where [artname] = 'ACDC'), '190', 'Realize.jpg'),
 ('Shot In The Dark', (SELECT id from Artists where [artname] = 'ACDC'), '190', 'Realize.jpg'),
 ('Wild Reputation', (SELECT id from Artists where [artname] = 'ACDC'), '190', 'Realize.jpg'),
-('Code Red', (SELECT id from Artists where [artname] = 'ACDC'), '190', 'Realize.jpg')
+('Code Red', (SELECT id from Artists where [artname] = 'ACDC'), '190', 'Realize.jpg'),
+
+('Stage a iSolutions', (SELECT id from Artists where [artname] = 'Robot'), '190', 'Stage a iSolutions.jpg'),
+('Tutto o Niente', (SELECT id from Artists where [artname] = 'Robot'), '190', 'Tutto o Niente.jpg'),
+('La Mano del Destino', (SELECT id from Artists where [artname] = 'Robot'), '190', 'La Mano del Destino.jpg'),
+('Macchine Vive', (SELECT id from Artists where [artname] = 'Robot'), '190', 'Macchine Vive.jpg'),
+('Soldi Virtuali, Sogni Reali', (SELECT id from Artists where [artname] = 'Robot'), '190', 'Soldi Virtuali, Sogni Reali.jpg'),
+('Superbrain Beat', (SELECT id from Artists where [artname] = 'Robot'), '190', 'Superbrain Beat.jpg')
 
 
 INSERT INTO Playlists 
@@ -114,7 +122,9 @@ VALUES
 ('Prima Playlist',(SELECT UserId FROM Users WHERE [nickname] = 'capo')),
 ('Seconda Playlist',(SELECT UserId FROM Users WHERE [nickname] = 'capo')),
 ('MAFIA SLIME 1',(SELECT UserId FROM Users WHERE [nickname] = 'worker')),
-('MAFIA SLIME 2',(SELECT UserId FROM Users WHERE [nickname] = 'worker'))
+('MAFIA SLIME 2',(SELECT UserId FROM Users WHERE [nickname] = 'worker')),
+('AI 1',(SELECT UserId FROM Users WHERE [nickname] = 'boccio'))
+
 ---------------------------------------
 IF NOT EXISTS (SELECT TOP 1 * FROM dbo.MusicTypes)
 BEGIN
@@ -206,8 +216,14 @@ VALUES
 ((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 2'), (SELECT id from Songs where [title] = 'Sonar')),
 ((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 2'), (SELECT id from Songs where [title] = 'ACCAVALLATO')),
 ((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 2'), (SELECT id from Songs where [title] = 'Mafia Slime')),
-((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 2'), (SELECT id from Songs where [title] = 'Dexter'))
+((SELECT playlistId from Playlists where [name] = 'MAFIA SLIME 2'), (SELECT id from Songs where [title] = 'Dexter')),
 
+((SELECT playlistId from Playlists where [name] = 'AI 1'), (SELECT id from Songs where [title] = 'Stage a iSolutions')),
+((SELECT playlistId from Playlists where [name] = 'AI 1'), (SELECT id from Songs where [title] = 'Tutto o Niente')),
+((SELECT playlistId from Playlists where [name] = 'AI 1'), (SELECT id from Songs where [title] = 'La Mano del Destino')),
+((SELECT playlistId from Playlists where [name] = 'AI 1'), (SELECT id from Songs where [title] = 'Macchine Vive')),
+((SELECT playlistId from Playlists where [name] = 'AI 1'), (SELECT id from Songs where [title] = 'Soldi Virtuali, Sogni Reali')),
+((SELECT playlistId from Playlists where [name] = 'AI 1'), (SELECT id from Songs where [title] = 'Superbrain Beat'))
 
 -----------------------------------------------------------------------------------
 
