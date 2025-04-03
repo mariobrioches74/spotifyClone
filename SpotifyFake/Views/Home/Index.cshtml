@@ -44,8 +44,8 @@
 							X
 						</a>
 					</td>
-					<td style="width:90%;cursor:pointer" onclick=" document.getElementById('iframe_home').src = 'http://localhost:5101/home/PlaylistDetails?playlistId=@playlists.playlistId'">
-						<div class="display_left">
+					<td style="width:90%;cursor:pointer">
+						<div class="display_left" onclick="document.getElementById('iframe_home').src = 'http://localhost:5101/home/PlaylistDetails?playlistId=@playlists.playlistId'">
 							<h2 class="playlist_list">
 								<a class="nomePlaylist">
 									@playlists.name
@@ -66,5 +66,19 @@
 			}
 		</table>
 	</div>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>// import jQuery
+ <script>
+		$('div').click(function(){
+			if($('#div').is('.open'))
+			{
+				$(this).addClass("close");
+			}
+			else
+			{
+				$(this).addClass("open");
+			}
+		});
+	</script> 
 	</body>
 </html>

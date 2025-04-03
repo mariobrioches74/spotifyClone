@@ -293,4 +293,10 @@ a.fill-div {
     }
 }
 
+.open{
+    border: 2px solid dimgrey;
+}
+.close {
+    border: none;
+}
 
