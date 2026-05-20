@@ -28,12 +28,10 @@ L’esperienza ha permesso di approfondire:
 ## 2. Installare SSMS
 
 - Installare **SSMS (SQL Server Management Studio)**
-- Una volta fatto il login creare un database chiamato:
-
-`Spotify`
+- Una volta fatto il login creare un database chiamato: `Spotify`
 
 
-# Installazione Visual Studio
+## Installazione Visual Studio
 
 Scaricare **Visual Studio** con le seguenti estensioni da inserire su **Visual Studio Installer**:
 
@@ -42,14 +40,14 @@ Scaricare **Visual Studio** con le seguenti estensioni da inserire su **Visual S
 - Data storage and processing
 
 
-# Configurazione GitHub
+## Configurazione GitHub
 
 - Iscriversi sul web a GitHub e installare GitExtensions
 - Copiare il code di GitHub e fare `"clone depository"` su GitExtensions
 - Fare il pull di tutti i dati da GitExtensions e aprire il progetto su Visual Studio
 
 
-# Configurazione Database
+## Configurazione Database
 
 - Mentre si è connessi al database eseguire il `pubblish.xml` da Visual Studio
 - Su SSMS fare una nuova query e copiare tutto il codice preso da `data.sql` da Visual Studio
@@ -63,7 +61,7 @@ In caso di problemi:
   (anche se ripetuto più volte non causa problemi al database)
 
 
-# Avvio del progetto
+## Avvio del progetto
 
 - Tornare su Visual Studio e avviare tramite il pulsante `"http"`
 - Si aprirà il sito e da lì è in libero uso
